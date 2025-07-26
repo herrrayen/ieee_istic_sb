@@ -29,29 +29,29 @@ export const Navbar = () => {
       className="!bg-transparent shadow-none pt-5"
       isBlurred={false}
     >
-      <NavbarContent className="basis-1/5 sm:basis-full p-8 shadow-xl rounded-4xl bg-white" >
-        <NavbarBrand as="li" className="justify-start max-w-fit">
-          <NextLink className="flex  gap-50" href="/">
-            <Logo />
-          </NextLink>
-        </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "secondary" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center",
-                )}
-                color="secondary"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </ul>
-      </NavbarContent>
+      <NavbarContent className="basis-1/5 sm:basis-full p-8 shadow-xl rounded-4xl bg-white flex justify-between items-center" >
+  <NavbarBrand as="li" className="justify-start max-w-fit">
+    <NextLink className="flex gap-50" href="/">
+      <Logo />
+    </NextLink>
+  </NavbarBrand>
+  <ul className="hidden lg:flex gap-4 justify-center flex-1">
+    {siteConfig.navItems.map((item) => (
+      <NavbarItem key={item.href}>
+        <NextLink
+          className={clsx(
+            linkStyles({ color: "secondary" }),
+            "data-[active=true]:text-primary data-[active=true]:font-medium justify-center",
+          )}
+          color="secondary"
+          href={item.href}
+        >
+          {item.label}
+        </NextLink>
+      </NavbarItem>
+    ))}
+  </ul>
+</NavbarContent>
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">

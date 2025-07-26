@@ -8,6 +8,14 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownSection,
+  DropdownItem,
+} from "@heroui/dropdown";
+
 import { Button } from "@heroui/button";
 import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";

@@ -23,7 +23,7 @@ import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { useState , } from "react";
-
+import {Image} from "@heroui/react";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Logo } from "@/components/icons";
@@ -41,9 +41,9 @@ export const Navbar = () => {
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="w-full px-4 py-4 sm:p-8 shadow-xl rounded-2xl sm:rounded-4xl bg-white flex justify-between items-center mx-4 sm:mx-0">
-        <NavbarBrand as="li" className="justify-start max-w-fit">
+        <NavbarBrand as="li" className="justify-start ">
           <NextLink className="flex gap-50" href="/">
-            <Logo />
+            <Image src="/logo.png"   className="h-auto w-32" />
           </NextLink>
         </NavbarBrand>
 

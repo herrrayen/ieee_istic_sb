@@ -17,6 +17,14 @@ export const siteConfig = {
       href: "/subunits",
     },
     {
+      label: "Activities",
+      href: "/activities",
+    },
+    {
+      label: "Events",
+      href: "/events",
+    },
+    {
       label: "Contact",
       href: "/contact",
     },

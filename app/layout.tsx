@@ -37,7 +37,7 @@ export default function RootLayout({
       <head></head>
       <body
         className={clsx(
-          "min-h-screen text-foreground font-sans antialiased bg-gradient-to-br from-primary to-secondary",
+          "min-h-screen text-foreground font-sans antialiased bg-gradient-to-b from-primary to-secondary",
           fontSans.variable
         )}
       >
@@ -47,16 +47,13 @@ export default function RootLayout({
             <main className="container mx-auto pt-20 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://heroui.com?utm_source=next-app-template"
-                title="heroui.com homepage"
-              >
-                <span className="text-default-600">2025©</span>
-                <p className="text-primary">All Rights Reserved</p>
-              </Link>
+            <footer
+              className={clsx(
+                "bg-primary border-t border-primary/20 w-full flex items-center justify-center py-6"
+              )}
+            >
+                <span className="text-white mr-1">Copyright 2025 © All Rights Reserved. Developed and designed by  </span>
+                <Link className="text-white" href="https://www.linkedin.com/in/mohamed-rayen-trabelsi-8b3056296/"> Mohamed Rayen Trabelsi</Link>
             </footer>
           </div>
         </Providers>

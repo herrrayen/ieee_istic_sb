@@ -2,14 +2,14 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/types";
 
-import Image from "next/image";
+import {Image} from "@heroui/react";
 
 export const Logo: React.FC<{
   width?: number;
   height?: number;
   alt?: string;
-}> = ({ width = 150, height = 150, alt = "Logo", ...props }) => (
-  <Image src="/logo.png" alt={alt} width={width} height={height} {...props} />
+}> = ({ alt = "Logo", ...props }) => (
+  <Image     src="/logo.png" alt={alt} {...props} />
 );
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({

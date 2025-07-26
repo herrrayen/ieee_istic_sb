@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "IEEE ISTIC SB",
-  description: "Make beautiful websites regardless of your design experience.",
+  description: "Welcome to Our Student Branch.",
   navItems: [
     {
       label: "Home",
@@ -10,15 +10,32 @@ export const siteConfig = {
     },
     {
       label: "About",
-      href: "/docs",
+      href: "/about",
     },
     {
       label: "Subunits",
-      href: "/pricing",
+      href: "/subunits",
     },
     {
       label: "Contact",
-      href: "/blog",
+      href: "/contact",
+    },
+  ],
+  DropdownItems:[{
+      label:"CS",
+      href:"/subunits/cs"
+    },
+    {
+      label:"WIE",
+      href:"/subunits/wie"
+    },
+    {
+      label:"IAS",
+      href:"/subunits/ias"
+    },
+    {
+      label:"SIGHT",
+      href:"/subunits/sight"
     },
   ],
   navMenuItems: [

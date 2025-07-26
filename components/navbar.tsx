@@ -15,7 +15,6 @@ import {
   DropdownSection,
   DropdownItem,
 } from "@heroui/dropdown";
-
 import { Button } from "@heroui/button";
 import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
@@ -23,7 +22,7 @@ import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { useState } from "react";
+import { useState , } from "react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -50,20 +49,44 @@ export const Navbar = () => {
 
         {/* Desktop Navigation - hidden on small screens */}
         <ul className="hidden md:flex gap-4 mr-8 justify-end flex-1">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "primary", size: "md" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center "
-                )}
-                color="secondary"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
+          {siteConfig.navItems.map((item) =>
+            item.label === "Subunits" ? (
+              <NavbarItem key={item.href}>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <span
+                      className={clsx(
+                        linkStyles({ color: "primary", size: "md" }),
+                        "data-[active=true]:text-primary data-[active=true]:font-medium justify-center px-2 cursor-pointer"
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                  </DropdownTrigger>
+                  <DropdownMenu aria-label="Subunits">
+                    {siteConfig.DropdownItems.map((sub) => (
+                      <DropdownItem key={sub.href} as={NextLink} href={sub.href}>
+                        {sub.label}
+                      </DropdownItem>
+                    ))}
+                  </DropdownMenu>
+                </Dropdown>
+              </NavbarItem>
+            ) : (
+              <NavbarItem key={item.href}>
+                <NextLink
+                  className={clsx(
+                    linkStyles({ color: "primary", size: "md" }),
+                    "data-[active=true]:text-primary data-[active=true]:font-medium justify-center "
+                  )}
+                  color="secondary"
+                  href={item.href}
+                >
+                  {item.label}
+                </NextLink>
+              </NavbarItem>
+            )
+          )}
         </ul>
 
         {/* Mobile Menu Toggle - visible on small screens */}

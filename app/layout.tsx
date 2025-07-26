@@ -38,7 +38,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen text-foreground font-sans antialiased bg-gradient-to-br from-primary to-secondary",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
@@ -46,7 +46,6 @@ export default function RootLayout({
             <Navbar />
             <main className="container mx-auto pt-20 flex-grow">
               {children}
-              
             </main>
             <footer className="w-full flex items-center justify-center py-3">
               <Link

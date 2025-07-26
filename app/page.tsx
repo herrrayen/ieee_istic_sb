@@ -12,7 +12,7 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-4  md:py-10 ">
       <div className="inline-block max-w-xl text-center justify-center">
         <span className={title()}>We&nbsp;</span>
-        <span  className={title({ color: "orange" })}>Dont&nbsp;</span>
+        <span className={title({ color: "orange" })}>Dont&nbsp;</span>
         <br />
         <span className={title()}>
           Reflect The Light <br /> We Create our Own.

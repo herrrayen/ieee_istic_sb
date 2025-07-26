@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
@@ -19,17 +19,15 @@ import { useState } from "react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  Logo,
-} from "@/components/icons";
+import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <HeroUINavbar 
-      maxWidth="xl" 
-      position="sticky" 
+    <HeroUINavbar
+      maxWidth="xl"
+      position="sticky"
       className="!bg-transparent shadow-none pt-5"
       isBlurred={false}
       isMenuOpen={isMenuOpen}
@@ -41,15 +39,15 @@ export const Navbar = () => {
             <Logo />
           </NextLink>
         </NavbarBrand>
-        
+
         {/* Desktop Navigation - hidden on small screens */}
-        <ul className="hidden md:flex gap-4 justify-center flex-1">
+        <ul className="hidden md:flex gap-4 mr-8 justify-end flex-1">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
-                  linkStyles({ color: "secondary" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center",
+                  linkStyles({ color: "primary", size: "md" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center "
                 )}
                 color="secondary"
                 href={item.href}
@@ -63,9 +61,9 @@ export const Navbar = () => {
         {/* Mobile Menu Toggle - visible on small screens */}
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
+          className="md:hidden ml-4"
         />
-        <Button className="bg-primary text-white"> Join IEEE  </Button>
+        <Button className="bg-primary text-white"> Join IEEE </Button>
         <ThemeSwitch />
       </NavbarContent>
 

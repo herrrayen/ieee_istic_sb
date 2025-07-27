@@ -157,7 +157,7 @@ export default function Home() {
         ref={sectionRefs[0]}
         className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden"
       >
-        <div className="text-center justify-center max-w-6xl w-full px-6 relative z-10">
+        <div className="text-center max-w-6xl w-full px-6 relative z-10">
           <div className="mb-8">
             <ShinyText
               text="Welcome to IEEE ISTIC SB"
@@ -167,14 +167,16 @@ export default function Home() {
             />
           </div>
           
-          <div className="mb-8 relative">
-            <TextTransition
-              springConfig={presets.wobbly}
-              className="text-gray-700 font-local text-2xl md:text-4xl lg:text-5xl font-semibold"
-            >
-              {TEXTS[index % TEXTS.length]}
-            </TextTransition>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+          <div className="mb-8 relative flex flex-col items-center">
+            <div className="text-center">
+              <TextTransition
+                springConfig={presets.wobbly}
+                className="text-gray-700 font-local text-2xl md:text-4xl lg:text-5xl font-semibold"
+              >
+                {TEXTS[index % TEXTS.length]}
+              </TextTransition>
+            </div>
+            <div className="mt-2 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
           </div>
           
           <div className="text-center text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-gray-600 mb-12">

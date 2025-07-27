@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { fontSans, fontLocal } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
@@ -38,7 +38,8 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen text-foreground font-sans antialiased bg-gradient-to-b from-primary to-secondary",
-          fontSans.variable
+          fontSans.variable,
+          fontLocal.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
@@ -49,7 +50,7 @@ export default function RootLayout({
             </main>
             <footer
               className={clsx(
-                "bg-primary border-t border-primary/20 w-full flex items-center justify-center py-6"
+                "bg-primary border-t border-primary/20 w-full flex items-center justify-center py-4"
               )}
             >
                 <span className="text-white mr-1">Copyright 2025 © All Rights Reserved. Developed and designed by  </span>

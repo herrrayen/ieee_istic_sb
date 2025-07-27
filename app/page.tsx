@@ -158,10 +158,7 @@ export default function Home() {
         className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden"
       >
         <div className="text-center max-w-6xl w-full px-6 relative z-10">
-          <div className="mb-8 relative">
-            <div className="absolute -top-4 -left-4 text-6xl opacity-20">
-              <Sparkles className="w-16 h-16 text-yellow-400 animate-spin-slow" />
-            </div>
+          <div className="mb-8">
             <ShinyText
               text="Welcome to IEEE ISTIC SB"
               disabled={false}
@@ -170,7 +167,7 @@ export default function Home() {
             />
           </div>
           
-          <div className="mb-12 relative">
+          <div className="mb-8 relative">
             <TextTransition
               springConfig={presets.wobbly}
               className="text-gray-700 font-local text-2xl md:text-4xl lg:text-5xl text-center font-semibold"
@@ -278,27 +275,9 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-orange-400 mx-auto rounded-full"></div>
           </div>
 
-                     <div className="relative">
-              <Carousel
-                className="rounded-3xl w-full h-[70vh] max-h-[600px] overflow-hidden shadow-2xl"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                {/* Custom Navigation */}
-                <div className="absolute bottom-6 left-2/4 z-50 flex -translate-x-2/4 gap-3">
-                  {[0, 1, 2].map((i) => (
-                    <button
-                      key={i}
-                      className={`block h-2 cursor-pointer rounded-full transition-all duration-300 ${
-                        currentSlide === i 
-                          ? "w-12 bg-white shadow-lg" 
-                          : "w-6 bg-white/50 hover:bg-white/75"
-                      }`}
-                      onClick={() => setCurrentSlide(i)}
-                    />
-                  ))}
-                </div>
+          <div className="relative">
+            {/* Custom carousel implementation */}
+            <div className="relative w-full h-[70vh] max-h-[600px] overflow-hidden rounded-3xl shadow-2xl">
               {[
                 {
                   image: "/images/testimonials/hamza.jpg",
@@ -319,10 +298,15 @@ export default function Home() {
                   position: "object-center"
                 }
               ].map((testimonial, idx) => (
-                <div key={idx} className="relative h-full w-full">
+                <div 
+                  key={idx} 
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    currentSlide === idx ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
                   <img
                     src={testimonial.image}
-                    alt={`testimonial ${idx + 1}`}
+                    alt={`${testimonial.name} testimonial`}
                     className={`h-full w-full object-cover ${testimonial.position}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
@@ -330,28 +314,14 @@ export default function Home() {
                       <div className="text-center max-w-4xl">
                         <div className="mb-8 relative">
                           <div className="text-6xl text-white/20 absolute -top-4 -left-4">"</div>
-                          <Typography
-                            variant="h2"
-                            color="white"
-                            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 relative z-10"
-                            placeholder=""
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
-                          >
+                          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 relative z-10 text-white">
                             {testimonial.name}
-                          </Typography>
+                          </h3>
                         </div>
                         
-                        <Typography
-                          variant="lead"
-                          color="white"
-                          className="text-lg md:text-xl leading-relaxed opacity-95 italic"
-                          placeholder=""
-                          onPointerEnterCapture={() => {}}
-                          onPointerLeaveCapture={() => {}}
-                        >
+                        <p className="text-lg md:text-xl leading-relaxed opacity-95 italic text-white">
                           "{testimonial.quote}"
-                        </Typography>
+                        </p>
                         
                         <div className="mt-8 flex justify-center">
                           <div className="w-16 h-1 bg-gradient-to-r from-white/50 to-white/80 rounded-full"></div>
@@ -361,7 +331,22 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </Carousel>
+            </div>
+
+            {/* Custom Navigation Dots */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex gap-3">
+              {[0, 1, 2].map((i) => (
+                <button
+                  key={i}
+                  className={`block h-2 cursor-pointer rounded-full transition-all duration-300 ${
+                    currentSlide === i 
+                      ? "w-12 bg-white shadow-lg" 
+                      : "w-6 bg-white/50 hover:bg-white/75"
+                  }`}
+                  onClick={() => setCurrentSlide(i)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

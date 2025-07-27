@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* New Section */}
-      <section className="flex flex-col items-center justify-center gap-4 md:py-10 pb-64">
+      <section className="flex flex-col items-center justify-center gap-4 md:py-10 pb-96">
         <Card className="flex flex-row w-full max-w-6xl max-h-96 bg-gray-100">
           <CardBody className="text-center ">
             Expand Your Network
@@ -92,6 +92,11 @@ export default function Home() {
             </text>
           </CardBody>
         </Card>
+      </section>
+      {/* New Section */}
+      <section className="flex flex-col items-center justify-center gap-4 md:py-10 pt-96" >
+        <h2>Your New Section Title</h2>
+        <p>Add your content here without any padding affecting the text above.</p>
       </section>
     </>
   );

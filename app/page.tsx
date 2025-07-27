@@ -11,18 +11,11 @@ import { Card } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { CardBody, CardFooter } from "@heroui/card";
 import { Button } from "@heroui/button";
-import {
-  Users,
-  Calendar,
-  Component,
-  Network,
-  Briefcase,
-  Users2,
-} from "lucide-react";
+import { Network, Briefcase, Users2 } from "lucide-react";
 import { fontMono } from "@/config/fonts";
 import { fontLocal } from "@/config/fonts";
 import TextTransition, { presets } from "react-text-transition";
-import ShinyText from '@/src/blocks/TextAnimations/ShinyText/ShinyText';
+import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
 
 const TEXTS = [
   "Where Innovation Begins",
@@ -69,36 +62,44 @@ export default function Home() {
 
       {/* New Section */}
       <section className="flex flex-col items-center justify-center gap-4 md:py-10 pb-96">
-        <Card className="flex flex-row w-full max-w-6xl max-h-96 bg-gray-100">
-          <CardBody className="text-center ">
-            Expand Your Network
-            <Network className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
-            <div className="text-center">
-              Meet 450,000+ professionals around the world and in your field.
-            </div>
-          </CardBody>
-          <CardBody className="text-center">
-            Advance Your Career
-            <Briefcase className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
-            <div className="text-center">
-              Stay ahead with exclusive IEEE tools and learning resources.
-            </div>
-          </CardBody>
-          <CardBody className="text-center">
-            Grow as a Leader
-            <Users2 className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
-            <div className="text-center">
-              Mentor, lead teams, and shape tomorrow's tech world.
-            </div>
-          </CardBody>
-        </Card>
+        <div className="text-center pb-64">
+          <Card className="flex flex-row w-full max-w-6xl max-h-96 bg-gray-100 ">
+            <CardBody className="text-center ">
+              Expand Your Network
+              <Network className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
+              <div className="text-center">
+                Meet 450,000+ professionals around the world and in your field.
+              </div>
+            </CardBody>
+            <CardBody className="text-center">
+              Advance Your Career
+              <Briefcase className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
+              <div className="text-center">
+                Stay ahead with exclusive IEEE tools and learning resources.
+              </div>
+            </CardBody>
+            <CardBody className="text-center">
+              Grow as a Leader
+              <Users2 className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
+              <div className="text-center">
+                Mentor, lead teams, and shape tomorrow's tech world.
+              </div>
+            </CardBody>
+          </Card>
+          <Link
+            href="https://www.ieee.org/membership/benefits/index.html"
+            className="pt-6"
+          >
+            {" "}
+            Explore All IEEE Member Benefits{" "}
+          </Link>
+        </div>
       </section>
 
       {/* New Section */}
       <section className="flex flex-col items-center justify-center gap-4 md:py-10 pt-96">
-        <h2>Your New Section Title</h2>
-        <p>Add your content here without any padding affecting the text above.</p>
-      </section>
+        Testimonials
+      </section> 
     </>
   );
 }

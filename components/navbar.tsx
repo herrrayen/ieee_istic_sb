@@ -95,7 +95,17 @@ export const Navbar = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="md:hidden ml-4"
         />
-        <Button className="bg-primary text-white"> Join IEEE </Button>
+        <NavbarItem>
+            <Button 
+              as={Link}
+              href="https://ieee.org/membership/join"
+              target="_blank"
+              variant="light"
+              className="relative font-medium text-white overflow-hidden transition-scale duration-500 hover:scale-110 bg-gradient-to-r from-blue-500 to-blue-300 border-none"
+            >
+              Join Us
+            </Button>
+          </NavbarItem>
         <ThemeSwitch />
       </NavbarContent>
 

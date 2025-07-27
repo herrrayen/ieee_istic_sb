@@ -1,10 +1,13 @@
 import {heroui} from "@heroui/theme"
 
+const withMT = require("@material-tailwind/react/utils/withMT");
+
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
@@ -40,7 +43,6 @@ const config = {
       },
     },
   },})],  
-  
 }
 
-module.exports = config;
+module.exports = withMT(config);

@@ -30,15 +30,6 @@ const TEXTS = [
 
 export default function Home() {
   const [index, setIndex] = React.useState(0);
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-  const [currentSection, setCurrentSection] = React.useState(0);
-  const [isScrolling, setIsScrolling] = React.useState(false);
-
-  const sectionRefs = [
-    React.useRef<HTMLElement>(null),
-    React.useRef<HTMLElement>(null),
-    React.useRef<HTMLElement>(null),
-  ];
 
   React.useEffect(() => {
     const intervalId = setInterval(
@@ -48,110 +39,26 @@ export default function Home() {
     return () => clearTimeout(intervalId);
   }, []);
 
-  // Auto-play for carousel
-  React.useEffect(() => {
-    const carouselInterval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 3); // 3 is the number of slides
-    }, 4000); // Change slide every 4 seconds
-
-    return () => clearInterval(carouselInterval);
-  }, []);
-
-  // Scroll-based section switching
-  React.useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      
-      if (isScrolling) return;
-      
-      setIsScrolling(true);
-      
-      const direction = e.deltaY > 0 ? 1 : -1;
-      const nextSection = Math.max(0, Math.min(2, currentSection + direction));
-      
-      if (nextSection !== currentSection) {
-        setCurrentSection(nextSection);
-        sectionRefs[nextSection].current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-      }
-      
-      setTimeout(() => setIsScrolling(false), 800);
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        
-        if (isScrolling) return;
-        
-        setIsScrolling(true);
-        
-        const direction = e.key === 'ArrowDown' ? 1 : -1;
-        const nextSection = Math.max(0, Math.min(2, currentSection + direction));
-        
-        if (nextSection !== currentSection) {
-          setCurrentSection(nextSection);
-          sectionRefs[nextSection].current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-        }
-        
-        setTimeout(() => setIsScrolling(false), 800);
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('keydown', handleKeyDown);
-    
-    return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [currentSection, isScrolling]);
-
   return (
-    <div className="overflow-hidden">
-      {/* Section Navigation Indicator */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
-        {[0, 1, 2].map((i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setCurrentSection(i);
-              sectionRefs[i].current?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
-            }}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSection === i ? 'bg-blue-600 scale-125' : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-          />
-        ))}
-      </div>
-
-      <section 
-        ref={sectionRefs[0]}
-        className="flex flex-col items-center justify-center gap-4 min-h-screen py-10"
-      >
-        <div className="inline-block max-w-4xl text-center justify-center px-4">
+    <>
+      <section className="flex flex-col items-center justify-center gap-4 md:py-10">
+        <div className="inline-block max-w-4xl text-center justify-center pt-10 pb-64">
           <ShinyText
             text="Welcome to IEEE ISTIC SB"
             disabled={false}
             speed={3}
-            className="text-black font-sans text-6xl mb-6"
+            className="text-black font-sans text-6xl"
           />
+          <br />
           <TextTransition
             springConfig={presets.wobbly}
-            className="text-black font-local text-6xl text-center justify-center mb-6"
+            className="text-black font-local text-6xl text-center justify-center"
           >
             {TEXTS[index % TEXTS.length]}
           </TextTransition>
+          <br />
 
-          <div className="text-center text-lg max-w-2xl mx-auto">
+          <div className="text-center">
             IEEE ISTIC SB is your launchpad into the world of engineering,
             innovation, and global opportunities.
           </div>
@@ -159,11 +66,8 @@ export default function Home() {
       </section>
 
       {/* New Section */}
-      <section 
-        ref={sectionRefs[1]}
-        className="flex flex-col items-center justify-center gap-4 md:py-10 min-h-screen"
-      >
-        <div className="text-center">
+      <section className="flex flex-col items-center justify-center gap-4 md:py-10 pb-96">
+        <div className="text-center pb-64">
           <Card className="flex flex-row w-full max-w-6xl max-h-96 bg-gray-100 ">
             <CardBody className="text-center ">
               Expand Your Network
@@ -189,7 +93,7 @@ export default function Home() {
           </Card>
           <Link
             href="https://www.ieee.org/membership/benefits/index.html"
-            className="pt-6 block"
+            className="pt-6"
           >
             {" "}
             Explore All IEEE Member Benefits{" "}
@@ -197,48 +101,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section with Auto-moving Carousel */}
-      <section 
-        ref={sectionRefs[2]}
-        className="flex flex-col items-center justify-center gap-4 min-h-screen py-10"
-      >
-        <div className="w-full max-w-4xl px-4">
+      {/* Testimonials Section with Carousel */}
+      <section className="flex flex-col items-center justify-center gap-4 md:py-10 ">
+        <div className=" max-w-2xl">
           <h2 className="text-4xl font-bold text-center mb-8">Testimonials</h2>
           <Carousel
-            className="rounded-xl w-full h-[70vh] max-h-[600px]"
+            className="rounded-xl w-full"
             placeholder=""
             onPointerEnterCapture={() => {}}
             onPointerLeaveCapture={() => {}}
-            activeIndex={currentSlide}
-            autoplay={true}
-            autoplayDelay={4000}
-            loop={true}
-            navigation={({ setActiveIndex, activeIndex, length }) => (
-              <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-                {new Array(length).fill("").map((_, i) => (
-                  <span
-                    key={i}
-                    className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                      activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-                    }`}
-                    onClick={() => setActiveIndex(i)}
-                  />
-                ))}
-              </div>
-            )}
           >
             <div className="relative h-full w-full">
               <img
                 src="/images/testimonials/hamza.jpg"
                 alt="image 1"
-                className="h-full w-full object-cover object-bottom"
+                className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/75">
-                <div className="w-3/4 text-center md:w-2/4 px-4">
+                <div className="w-3/4 text-center md:w-2/4">
                   <Typography
-                    variant="h2"
+                    variant="h1"
                     color="white"
-                    className="mb-4 text-2xl md:text-3xl lg:text-4xl text-center"
+                    className="mb-4 text-3xl md:text-4xl lg:text-5xl text-center content-center"
                     placeholder=""
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
@@ -248,16 +132,17 @@ export default function Home() {
                   <Typography
                     variant="lead"
                     color="white"
-                    className="mb-6 opacity-80 text-sm md:text-base"
+                    className="mb-12 opacity-80"
                     placeholder=""
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
                   >
                     "Leading this Student Branch has been an incredible journey.
-                    I'm proud of what we've accomplished together and excited
-                    for the future we're building—one driven by innovation,
+                    I’m proud of what we've accomplished together and excited
+                    for the future we’re building—one driven by innovation,
                     teamwork, and passion for engineering."
                   </Typography>
+                  <div className="flex justify-center gap-2"></div>
                 </div>
               </div>
             </div>
@@ -268,11 +153,11 @@ export default function Home() {
                 className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/75">
-                <div className="w-3/4 text-center md:w-2/4 px-4">
+                <div className="w-3/4 text-center md:w-2/4">
                   <Typography
-                    variant="h2"
+                    variant="h1"
                     color="white"
-                    className="mb-4 text-2xl md:text-3xl lg:text-4xl"
+                    className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                     placeholder=""
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
@@ -282,7 +167,7 @@ export default function Home() {
                   <Typography
                     variant="lead"
                     color="white"
-                    className="mb-6 opacity-80 text-sm md:text-base"
+                    className="mb-12 opacity-80"
                     placeholder=""
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
@@ -290,9 +175,10 @@ export default function Home() {
                     It has been a privilege to guide and support such a
                     motivated and dynamic group of students. Their dedication to
                     excellence, leadership, and innovation reflects the true
-                    spirit of IEEE. I'm confident they will continue to make a
+                    spirit of IEEE. I’m confident they will continue to make a
                     lasting impact.
                   </Typography>
+                  <div className="flex gap-2"></div>
                 </div>
               </div>
             </div>
@@ -303,11 +189,11 @@ export default function Home() {
                 className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/75">
-                <div className="w-3/4 text-center md:w-2/4 px-4">
+                <div className="w-3/4 text-center md:w-2/4">
                   <Typography
-                    variant="h2"
+                    variant="h1"
                     color="white"
-                    className="mb-4 text-2xl md:text-3xl lg:text-4xl"
+                    className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                     placeholder=""
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
@@ -317,22 +203,23 @@ export default function Home() {
                   <Typography
                     variant="lead"
                     color="white"
-                    className="mb-6 opacity-80 text-sm md:text-base"
+                    className="mb-12 opacity-80"
                     placeholder=""
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
                   >
-                    Being part of this Student Branch has been one of the most
-                    rewarding experiences of my academic journey. I've grown
-                    both technically and personally, made amazing friends, and
-                    found a community that truly supports and inspires me.
+                    It is not so much for its beauty that the forest makes a
+                    claim upon men&apos;s hearts, as for that subtle something,
+                    that quality of air that emanation from old trees, that so
+                    wonderfully changes and renews a weary spirit.
                   </Typography>
+                  <div className="flex gap-2"></div>
                 </div>
               </div>
             </div>
           </Carousel>
         </div>
       </section>
-    </div>
+    </>
   );
 }

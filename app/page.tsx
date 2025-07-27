@@ -21,8 +21,8 @@ import {
 } from "lucide-react";
 import { fontMono } from "@/config/fonts";
 import { fontLocal } from "@/config/fonts";
-import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
 import TextTransition, { presets } from "react-text-transition";
+import ShinyText from '@/src/blocks/TextAnimations/ShinyText/ShinyText';
 
 const TEXTS = [
   "Where Innovation Begins",
@@ -47,8 +47,8 @@ export default function Home() {
         <div className="inline-block max-w-4xl text-center justify-center pt-10 pb-64">
           <ShinyText
             text="Welcome to IEEE ISTIC SB"
-            disabled={true}
-            speed={5}
+            disabled={false}
+            speed={3}
             className="text-black font-sans text-6xl"
           />
           <br />
@@ -73,28 +73,29 @@ export default function Home() {
           <CardBody className="text-center ">
             Expand Your Network
             <Network className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
-            <text className="text-center">
+            <div className="text-center">
               Meet 450,000+ professionals around the world and in your field.
-            </text>
+            </div>
           </CardBody>
           <CardBody className="text-center">
             Advance Your Career
             <Briefcase className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
-            <text className="text-center">
-            Stay ahead with exclusive IEEE tools and learning resources.
-            </text>
+            <div className="text-center">
+              Stay ahead with exclusive IEEE tools and learning resources.
+            </div>
           </CardBody>
           <CardBody className="text-center">
             Grow as a Leader
             <Users2 className="w-15 h-15 self-center m-4 hover:scale-105 transition-all duration-300" />
-            <text className="text-center">
-            Mentor, lead teams, and shape tomorrow’s tech world.
-            </text>
+            <div className="text-center">
+              Mentor, lead teams, and shape tomorrow's tech world.
+            </div>
           </CardBody>
         </Card>
       </section>
+
       {/* New Section */}
-      <section className="flex flex-col items-center justify-center gap-4 md:py-10 pt-96" >
+      <section className="flex flex-col items-center justify-center gap-4 md:py-10 pt-96">
         <h2>Your New Section Title</h2>
         <p>Add your content here without any padding affecting the text above.</p>
       </section>

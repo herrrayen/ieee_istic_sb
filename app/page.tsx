@@ -197,11 +197,10 @@ export default function Home() {
                 : "bg-white/60 backdrop-blur-sm hover:bg-white/80 hover:scale-125"
             }`}
           >
-            <div
-              className={`absolute inset-0 rounded-full transition-opacity duration-300 ${
-                currentSection === i ? "opacity-100" : "opacity-0"
-              } bg-gradient-to-r from-blue-600 to-purple-600 animate-ping`}
-            ></div>
+            {/* Only show pulsing animation for current section */}
+            {currentSection === i && (
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-ping"></div>
+            )}
           </button>
         ))}
       </div>

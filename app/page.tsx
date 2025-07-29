@@ -241,14 +241,6 @@ export default function Home() {
             IEEE ISTIC SB is your launchpad into the world of engineering,
             innovation, and global opportunities.
           </div>
-
-          <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
-            <span className="relative z-10 flex items-center gap-2">
-              Get Started
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
         </div>
       </section>
 

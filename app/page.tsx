@@ -198,28 +198,29 @@ export default function Home() {
       >
         <div className="text-center max-w-6xl w-full px-8">
           <div className="mb-8">
-            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold">
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold text-center">
               Welcome to IEEE ISTIC SB
             </h1>
           </div>
 
           <div className="mb-12 flex flex-col items-center justify-center h-20 md:h-24">
-            <div className="w-full max-w-4xl text-center">
+            <div className="w-full flex justify-center">
               <TextTransition
                 springConfig={presets.wobbly}
-                className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic text-center"
+                className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic"
                 style={{
                   fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
                   textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                  display: "block",
-                  width: "100%",
+                  textAlign: "center",
+                  display: "inline-block",
                 }}
               >
                 {TEXTS[index % TEXTS.length]}
               </TextTransition>
             </div>
-            <div className="mt-4 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+            <div className="mt-10 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full "></div>
           </div>
+
           <div className="text-center text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-gray-800 dark:text-gray-200 font-medium mb-16">
             IEEE ISTIC SB is your launchpad into the world of engineering,
             innovation, and global opportunities.

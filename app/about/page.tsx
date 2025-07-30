@@ -7,26 +7,34 @@ export default function AboutPage() {
     <div className="flex flex-col gap-8">
       <section className="container mx-auto py-12">
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-6xl bg-navy-900 text-black rounded-lg p-12 mb-12">
-            <h2 className="text-4xl font-bold mb-4">About IEEE ISTIC SB</h2>
-            <div className="text-xl space-y-4">
-              <p>
+          <div className="w-full max-w-6xl border-l-4 border-primary pl-8 py-6 mb-16">
+            <h1 className="text-5xl font-light mb-8 tracking-tight">About <span className="font-bold text-primary">IEEE ISTIC SB</span></h1>
+            
+            <div className="text-xl space-y-6 text-gray-800 max-w-3xl">
+              <p className="leading-relaxed">
                 IEEE ISTIC SB is the engine of a vibrant community of innovators, learners, and future leaders.
                 Through hands-on projects, global initiatives, and international representation, we help students bring ideas to life.
               </p>
-              <p>
+              
+              <p className="leading-relaxed">
                 It's where tech meets purpose, and where leadership is built through growth, challenge, and community.
                 This is where we create, lead, and belong. This is our home.
               </p>
-              <div className="mt-8">
+              
+              <div className="mt-12 flex items-center">
                 <a 
                   href="https://www.ieee.org/membership/join/index.html" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center border-2 border-primary rounded text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 transition-all duration-300"
                 >
-                  Join Us!
+                  <span>Join Us</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
                 </a>
+                
+                <span className="ml-6 text-sm text-gray-600">Join 400,000+ members worldwide</span>
               </div>
             </div>
           </div>

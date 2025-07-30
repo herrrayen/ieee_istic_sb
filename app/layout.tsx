@@ -33,30 +33,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="">
-      <head></head>
+    <html suppressHydrationWarning lang="en" className="bg-fixed bg-gradient-to-tl from-blue-200 via-white to-pink-100 dark:bg-gradient-to-tl dark:from-gray-900 dark:via-slate-800 dark:to-purple-900">
+      <head className=""></head>
       <body
         className={clsx(
-          "min-h-screen text-foreground font-sans antialiased bg-gradient-to-b from-primary to-secondary",
+          "min-h-screen text-foreground font-sans antialiased",
           fontSans.variable,
           fontLocal.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto pt-20 flex-grow">
-              {children}
-            </main>
-            <footer
-              className={clsx(
-                "bg-primary border-t border-primary/20 w-full flex items-center justify-center py-4"
-              )}
+          {/* Navbar outside of main container */}
+          <Navbar />
+          
+          {/* Main content with proper spacing */}
+          <main className="min-h-screen">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <footer
+            className={clsx(
+              "bg-primary border-t border-primary/20 w-full flex items-center justify-center py-4"
+            )}
+          >
+            <span className="text-white mr-1">
+              Copyright 2025 © All Rights Reserved. Developed and designed by
+            </span>
+            <Link
+              className="text-white"
+              href="https://www.linkedin.com/in/mohamed-rayen-trabelsi-8b3056296/"
             >
-                <span className="text-white mr-1">Copyright 2025 © All Rights Reserved. Developed and designed by  </span>
-                <Link className="text-white" href="https://www.linkedin.com/in/mohamed-rayen-trabelsi-8b3056296/"> Mohamed Rayen Trabelsi</Link>
-            </footer>
-          </div>
+              {" "}
+              Mohamed Rayen Trabelsi
+            </Link>
+          </footer>
         </Providers>
       </body>
     </html>

@@ -31,17 +31,35 @@ import { Users} from "lucide-react"
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <HeroUINavbar
       maxWidth="xl"
       position="sticky"
-      className="!bg-transparent shadow-none pt-5"
+      className={clsx(
+        "transition-all duration-300 pt-5 z-50",
+      "bg-transparent shadow-none"
+      )}
       isBlurred={false}
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className="w-full px-4 py-4 sm:p-8 shadow-xl rounded-2xl sm:rounded-4xl bg-white flex justify-between items-center mx-4 sm:mx-0">
+      <NavbarContent className={clsx(
+        "w-full px-4 py-4 sm:p-8 rounded-2xl sm:rounded-4xl flex justify-between items-center mx-4 sm:mx-0 transition-all duration-300",
+        isScrolled 
+          ? "bg-white/90 dark:bg-gray-800/90 shadow-lg backdrop-blur-sm" 
+          : "bg-white shadow-xl"
+      )}>
         <NavbarBrand as="li" className="justify-start ">
           <NextLink className="flex gap-50" href="/">
             <Image isBlurred={true} src="/logo.png"   className="w-53" />
@@ -50,44 +68,20 @@ export const Navbar = () => {
 
         {/* Desktop Navigation - hidden on small screens */}
         <ul className="hidden md:flex gap-4 mr-8 justify-end flex-1">
-          {siteConfig.navItems.map((item) =>
-            item.label === "Subunits" ? (
-              <NavbarItem key={item.href}>
-                <Dropdown>
-                  <DropdownTrigger>
-                    <span
-                      className={clsx(
-                        linkStyles({ color: "primary", size: "md" }),
-                        "data-[active=true]:text-primary data-[active=true]:font-medium justify-center px-2 cursor-pointer"
-                      )}
-                    >
-                      {item.label}
-                    </span>
-                  </DropdownTrigger>
-                  <DropdownMenu aria-label="Subunits">
-                    {siteConfig.DropdownItems.map((sub) => (
-                      <DropdownItem key={sub.href} as={NextLink} href={sub.href}>
-                        {sub.label}
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </Dropdown>
-              </NavbarItem>
-            ) : (
-              <NavbarItem key={item.href}>
-                <NextLink
-                  className={clsx(
-                    linkStyles({ color: "primary", size: "md" }),
-                    "data-[active=true]:text-primary data-[active=true]:font-medium justify-center "
-                  )}
-                  color="secondary"
-                  href={item.href}
-                >
-                  {item.label}
-                </NextLink>
-              </NavbarItem>
-            )
-          )}
+          {siteConfig.navItems.map((item) => (
+            <NavbarItem key={item.href}>
+              <NextLink
+                className={clsx(
+                  linkStyles({ color: "primary", size: "md" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center "
+                )}
+                color="secondary"
+                href={item.href}
+              >
+                {item.label}
+              </NextLink>
+            </NavbarItem>
+          ))}
         </ul>
 
         {/* Mobile Menu Toggle - visible on small screens */}

@@ -12,7 +12,6 @@ import { Image } from "@heroui/image";
 import { CardBody, CardFooter } from "@heroui/card";
 import { Button } from "@heroui/button";
 import { Network, Briefcase, Users2, ArrowRight, Sparkles } from "lucide-react";
-import { fontMono } from "@/config/fonts";
 import { fontLocal } from "@/config/fonts";
 import TextTransition, { presets } from "react-text-transition";
 import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
@@ -150,20 +149,7 @@ export default function Home() {
   }, [currentSection, isScrolling]);
 
   return (
-    <div className="overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
-        <div className='absolute inset-0 bg-[url(&apos;data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&apos;)] opacity-50'></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="fixed inset-0 pointer-events-none -z-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-pink-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-28 h-28 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse delay-2000"></div>
-      </div>
-
+    <div className="transition-colors duration-300">
       {/* Enhanced Section Navigation */}
       <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-6">
         {[0, 1, 2].map((i) => (
@@ -194,7 +180,7 @@ export default function Home() {
             className={`relative w-3 h-3 rounded-full transition-all duration-500 group ${
               currentSection === i
                 ? "bg-gradient-to-r from-blue-600 to-purple-600 scale-150 shadow-lg shadow-blue-500/50"
-                : "bg-white/60 backdrop-blur-sm hover:bg-white/80 hover:scale-125"
+                : "bg-white/60 dark:bg-gray-700/60 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-600/80 hover:scale-125"
             }`}
           >
             {/* Only show pulsing animation for current section */}
@@ -208,35 +194,33 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={sectionRefs[0]}
-        className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden pt-4 pb-16"
+        className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden pt-32 pb-16"
       >
-        <div className="text-center max-w-6xl w-full px-8 relative z-10">
+        <div className="text-center max-w-6xl w-full px-8">
           <div className="mb-8">
-            <ShinyText
-              text="Welcome to IEEE ISTIC SB"
-              disabled={false}
-              speed={3}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold"
-            />
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold">
+              Welcome to IEEE ISTIC SB
+            </h1>
           </div>
 
-          <div className="mb-12 relative flex flex-col items-center h-20 md:h-24">
-            <div className="text-center absolute inset-0 flex items-center justify-center">
+          <div className="mb-12 flex flex-col items-center justify-center h-20 md:h-24">
+            <div className="w-full max-w-4xl text-center">
               <TextTransition
                 springConfig={presets.wobbly}
-                className="text-gray-700 text-2xl md:text-4xl lg:text-5xl font-medium italic"
+                className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic text-center"
                 style={{
                   fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
                   textShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  display: "block",
+                  width: "100%",
                 }}
               >
                 {TEXTS[index % TEXTS.length]}
               </TextTransition>
             </div>
-            <div className="absolute bottom-0 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+            <div className="mt-4 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
           </div>
-
-          <div className="text-center text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-gray-800 font-medium mb-16">
+          <div className="text-center text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-gray-800 dark:text-gray-200 font-medium mb-16">
             IEEE ISTIC SB is your launchpad into the world of engineering,
             innovation, and global opportunities.
           </div>
@@ -248,24 +232,21 @@ export default function Home() {
         ref={sectionRefs[1]}
         className="relative flex flex-col items-center justify-center min-h-screen py-20"
       >
-        {/* Background Pattern */}
-        <div className='absolute inset-0 bg-[url(&apos;data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&apos;)] opacity-50'></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-blue-600 text-xl font-semibold mb-4 tracking-wide">
+                <h3 className="text-blue-600 dark:text-blue-400 text-xl font-semibold mb-4 tracking-wide">
                   JOIN US!
                 </h3>
-                <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-800">
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-800 dark:text-white">
                   Networking, Mentorship, and Cutting-Edge Resources!
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mb-8"></div>
               </div>
 
-              <ul className="space-y-6 text-lg leading-relaxed text-gray-700">
+              <ul className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
                   <span>
@@ -303,27 +284,27 @@ export default function Home() {
                   icon: Network,
                   title: "Expand Your Network",
                   description:
-                    "Connect Globally and Cultivate Relationships with IEEE ISTIC SB.",
+                    "Meet 450,000+ professionals around the world sharing your passion.",
                   gradient: "from-blue-500 to-cyan-500",
                 },
                 {
                   icon: Users2,
-                  title: "IEEE ISTIC Community",
+                  title: "Advance Your Career",
                   description:
-                    "Whatever your discipline at ISTIC, IEEE ISTIC SB meets all technical needs.",
+                    "Stay ahead with exclusive IEEE tools and learning resources.",
                   gradient: "from-indigo-500 to-blue-500",
                 },
                 {
                   icon: Briefcase,
-                  title: "Advance Your Career",
+                  title: "Grow as a Leader",
                   description:
-                    "Boost your professional growth with top industry connections.",
+                    "Mentor, lead teams, and shape tomorrow's tech world.",
                   gradient: "from-purple-500 to-indigo-500",
                 },
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="group relative bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
                   <div className="flex items-start gap-4">
                     <div
@@ -332,10 +313,10 @@ export default function Home() {
                       <item.icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-gray-800 text-xl font-bold mb-2 group-hover:text-gray-900 transition-colors">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-bold mb-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
                         {item.description}
                       </p>
                     </div>
@@ -349,11 +330,16 @@ export default function Home() {
               ))}
 
               {/* Register Button */}
-              <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg">
+              <a
+                href="https://www.ieee.org/membership/benefits/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg"
+              >
                 <h3 className="text-white text-xl font-bold mb-2">
-                  Register now to IEEE ISTIC SB!
+                  Explore More IEEE Benefits!
                 </h3>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -405,10 +391,10 @@ export default function Home() {
             ].map((testimonial, idx) => (
               <div
                 key={idx}
-                className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border ${testimonial.accent} hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-black/10`}
+                className={`group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border ${testimonial.accent} dark:border-gray-700 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-white/10`}
               >
                 {/* Quote Icon */}
-                <div className="absolute top-4 right-4 text-4xl text-gray-200 group-hover:text-gray-300 transition-colors">
+                <div className="absolute top-4 right-4 text-4xl text-gray-200 dark:text-gray-600 group-hover:text-gray-300 dark:group-hover:text-gray-500 transition-colors">
                   "
                 </div>
 
@@ -421,11 +407,11 @@ export default function Home() {
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="relative w-16 h-16 rounded-full object-cover border-2 border-white shadow-lg"
+                      className="relative w-16 h-16 rounded-full object-cover border-2 border-white dark:border-gray-700 shadow-lg"
                     />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-gray-800 group-hover:text-gray-900 transition-colors">
+                    <h3 className="font-bold text-lg text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
                       {testimonial.name}
                     </h3>
                     <p
@@ -437,7 +423,7 @@ export default function Home() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-gray-600 group-hover:text-gray-700 leading-relaxed text-sm transition-colors">
+                <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 leading-relaxed text-sm transition-colors">
                   "{testimonial.quote}"
                 </p>
 

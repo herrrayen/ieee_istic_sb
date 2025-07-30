@@ -13,16 +13,8 @@ export const siteConfig = {
       href: "/about",
     },
     {
-      label: "Subunits",
-      href: "/subunits",
-    },
-    {
       label: "Activities",
       href: "/activities",
-    },
-    {
-      label: "Events",
-      href: "/events",
     },
     {
       label: "Contact",

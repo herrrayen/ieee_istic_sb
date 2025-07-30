@@ -8,17 +8,8 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownSection,
-  DropdownItem,
-} from "@heroui/dropdown";
 import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
@@ -26,8 +17,6 @@ import { useState , useEffect } from "react";
 import {Image} from "@heroui/image";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { Logo } from "@/components/icons";
-import { Users} from "lucide-react"
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

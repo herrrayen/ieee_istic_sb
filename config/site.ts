@@ -13,6 +13,10 @@ export const siteConfig = {
       href: "/about",
     },
     {
+      label: "Subunits",
+      href: "/subunits",
+    },
+    {
       label: "Activities",
       href: "/activities",
     },
@@ -20,6 +24,7 @@ export const siteConfig = {
       label: "Contact",
       href: "/contact",
     },
+    
   ],
   DropdownItems:[{
       label:"CS",

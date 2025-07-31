@@ -2,47 +2,6 @@
 
 import TeamCarousel from '@/components/team-carousel';
 
-// Define team members data
-const teamMembers = [
-  {
-    role: "Chairperson",
-    name: "John Doe",
-    description: "Leading our IEEE Student Branch with vision and dedication to create impact through technology.",
-    initials: "CH"
-  },
-  {
-    role: "Vice Chair",
-    name: "Jane Smith",
-    description: "Supporting branch initiatives and helping to coordinate our technical activities.",
-    initials: "VC"
-  },
-  {
-    role: "Secretary",
-    name: "Alex Johnson",
-    description: "Managing communications and ensuring smooth operation of all branch activities.",
-    initials: "SE"
-  },
-  {
-    role: "Treasurer",
-    name: "Maria Garcia",
-    description: "Handling financial planning and ensuring resources are available for our activities.",
-    initials: "TR"
-  },
-  {
-    role: "Webmaster",
-    name: "David Lee",
-    description: "Managing our digital presence and ensuring our technological infrastructure.",
-    initials: "WM"
-  },
-  {
-    role: "Branch Counselor",
-    name: "Prof. Sarah Williams",
-    description: "Providing guidance and mentorship to our student branch while connecting us to faculty resources.",
-    initials: "CO",
-    isSpecial: true
-  }
-];
-
 export default function AboutPage() {
   return (
     <div className="flex flex-col gap-8">

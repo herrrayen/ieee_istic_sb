@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import TeamImage from './team-image';
 
 interface TeamMember {
   role: string;
   name: string;
   description: string;
-  initials: string;
+  image: string; // Path to the profile image
   isSpecial?: boolean; // For the counselor with different styling
 }
 
@@ -21,37 +22,37 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
       role: "Chairperson",
       name: "Hamza Mellouli",
       description: "Leading our IEEE Student Branch with vision and dedication to create impact through technology.",
-      initials: "CH"
+      image: "/images/testimonials/hamza.jpg" // Using existing image
     },
     {
       role: "Vice Chair",
       name: "Yosri Ziadi",
       description: "Supporting branch initiatives and helping to coordinate our technical activities.",
-      initials: "VC"
+      image: "/images/team/yosri.jpg" // Placeholder image
     },
     {
-      role: "Secretary",
+      role: "General Secretary",
       name: "Maram El Kamel",
       description: "Managing communications and ensuring smooth operation of all branch activities.",
-      initials: "SE"
+      image: "/images/team/maram.jpg" // Placeholder image
     },
     {
       role: "Treasurer",
       name: "Fatma Boughanmi",
       description: "Handling financial planning and ensuring resources are available for our activities.",
-      initials: "TR"
+      image: "/images/team/fatma.jpg" // Placeholder image
     },
     {
       role: "Webmaster",
       name: "Mohamed Rayen Trabelsi",
       description: "Managing our digital presence and ensuring our technological infrastructure.",
-      initials: "WM"
+      image: "/images/team/rayen.jpg" // Placeholder image
     },
     {
       role: "Student Branch Counselor",
       name: "Prof. Manef Bourougaoui",
       description: "Providing guidance and mentorship to our student branch while connecting us to faculty resources.",
-      initials: "CO",
+      image: "/images/testimonials/manef.jpg", // Using existing image
       isSpecial: true
     }
   ];
@@ -138,10 +139,11 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
               className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border ${activeSlide === index ? 'border-blue-500 dark:border-blue-400 shadow-xl scale-[1.02]' : 'border-gray-200 dark:border-gray-700'} rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full`}
               aria-current={activeSlide === index ? "true" : "false"}
             >
-              <div className={`w-28 h-28 rounded-full ${member.isSpecial ? 'bg-gradient-to-r from-purple-400 to-purple-700' : 'bg-gradient-to-r from-blue-400 to-blue-700'} mb-6 flex items-center justify-center overflow-hidden`}>
-                {/* Replace with actual image later */}
-                <div className="text-white text-3xl font-bold">{member.initials}</div>
-              </div>
+              <TeamImage 
+                src={member.image} 
+                name={member.name} 
+                isSpecial={member.isSpecial}
+              />
               <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{member.role}</h3>
               <h4 className="text-lg font-semibold mb-4 text-blue-600">{member.name}</h4>
               <p className="text-gray-600 dark:text-gray-300">

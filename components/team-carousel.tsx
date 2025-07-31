@@ -19,7 +19,7 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
   // Default members if not provided (for development/testing)
   const members: TeamMember[] = teamMembers || [
     {
-      role: "Chairperson",
+      role: "Chair",
       name: "Hamza Mellouli",
       description: "Leading our IEEE Student Branch with vision and dedication to create impact through technology.",
       image: "/images/testimonials/hamza.jpg" // Using existing image

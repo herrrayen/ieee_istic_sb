@@ -7,8 +7,8 @@ export default function ActivitiesPage() {
     {
       title: "IEEE Lumen",
       date: "Revealed Soon",
-      location: "ISTIC Borj Cedria",
-      image: "/images/events/ieee-lumen-placeholder.jpg",
+      location: "Soon",
+      image: "/images/events/lumen.jpg",
       description:
         "A premier lighting conference focusing on advancements in lighting technology, energy efficiency, and emerging applications.",
       status: "Coming Soon",
@@ -45,12 +45,12 @@ export default function ActivitiesPage() {
   // Past Events Data
   const pastEvents = [
     {
-      title: "Ideathon ISTIC AIZU 2.0",
-      date: "April 19-20, 2025",
-      location: "ISTIC Borj Cedria",
-      image: "/images/events/aizu.jpg",
+      title: "Symphony:AI Bootcamp",
+      date: "April 13, 2025",
+      location: "Online & CCSJ Ben Arous",
+      image: "/images/events/symphony.jpg",
       description:
-        "A collaborative event with the University of Aizu where students developed innovative solutions to real-world problems.",
+        "A hybrid event that aims to build AI skills through online sessions by Hamza Mellouli and onsite deep learning workshops by Mr.Ghassen El Abed.",
     },
     {
       title: "STMicroelectronics Industrial Visit",
@@ -61,17 +61,18 @@ export default function ActivitiesPage() {
         "An exclusive industrial visit providing hands-on experience with cutting-edge semiconductor manufacturing technologies.",
     },
     {
-      title: "Symphony:NVIDIA Bootcamp",
-      date: "April 13, 2025",
-      location: "Online & ISTIC Borj Cedria",
-      image: "/images/events/symphony.jpg",
+      title: "Ideathon ISTIC AIZU 2.0",
+      date: "April 19-20, 2025",
+      location: "ISTIC Borj Cedria",
+      image: "/images/events/aizu.jpg",
       description:
-        "A hybrid event featuring online sessions by Hamza Mellouli and onsite deep learning workshops by Mr.Ghassen El Abed.",
+        "A collaborative event with the University of Aizu where students developed innovative solutions to real-world problems.",
     },
+    
     {
       title: "SHE Secured",
       date: "June 23 to July 7, 2025",
-      location: "Virtual",
+      location: "Online",
       image: "/images/events/shesecured.png",
       description:
         "An empowering cybersecurity workshop focused on increasing women's participation in information security fields.",
@@ -87,7 +88,7 @@ export default function ActivitiesPage() {
             <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 mb-4">
               Our Activities
             </h1>
-            <div className="w-32 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r mx-auto rounded-full"></div>
 
             <div className="mt-10 text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
               <p className="leading-relaxed">
@@ -196,10 +197,10 @@ export default function ActivitiesPage() {
           {/* Past Events Section */}
           <div className="w-full max-w-7xl pb-10">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
                 Past Events
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6">

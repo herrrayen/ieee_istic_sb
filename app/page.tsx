@@ -21,16 +21,8 @@ import {
   Button as MTButton,
 } from "@material-tailwind/react";
 
-// Add Google Fonts for calligraphy
-const loadGoogleFonts = () => {
-  if (typeof document !== "undefined") {
-    const link = document.createElement("link");
-    link.href =
-      "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-  }
-};
+// Font loading is now handled through Next.js font system
+// Using local font defined in config/fonts.ts
 
 const TEXTS = [
   "Where Innovation Begins",
@@ -47,10 +39,6 @@ export default function Home() {
   ];
 
   React.useEffect(() => {
-    loadGoogleFonts();
-  }, []);
-
-  React.useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
       3000 // every 3 seconds
@@ -60,7 +48,6 @@ export default function Home() {
 
   return (
     <div className="transition-colors duration-300">
-
       {/* Hero Section */}
       <section
         id="hero"
@@ -68,7 +55,7 @@ export default function Home() {
       >
         <div className="text-center max-w-6xl w-full px-8">
           <div className="mb-8">
-            <h1 className="text-transparent bg-clip-text bg-blue-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold text-center">
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold text-center">
               Welcome to IEEE ISTIC SB
             </h1>
           </div>
@@ -79,7 +66,7 @@ export default function Home() {
                 springConfig={presets.wobbly}
                 className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic"
                 style={{
-                  fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
+                  fontFamily: "var(--font-local)",
                   textShadow: "0 2px 4px rgba(0,0,0,0.1)",
                   textAlign: "center",
                   display: "inline-block",
@@ -104,43 +91,43 @@ export default function Home() {
         className="relative flex flex-col items-center justify-center py-20"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left Side - Content */}
-            <div className="space-y-8">
+            <div className="space-y-2">
               <div>
                 <h3 className="text-blue-600 dark:text-blue-400 text-lg font-semibold mb-4 tracking-wide">
                   JOIN US!
                 </h3>
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6 text-gray-800 dark:text-white">
+                <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-gray-800 dark:text-white">
                   Networking, Mentorship, and Cutting-Edge Resources!
                 </h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mb-8"></div>
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mb-4"></div>
               </div>
 
               <ul className="space-y-6 text-base leading-relaxed text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>
                     Join a community of over 450,000 technology and engineering
                     professionals.
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>
                     Access resources and opportunities to stay updated on
                     technology changes.
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>
                     Network with professionals in your local area or specific
                     technical fields.
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>
                     Mentor the next generation of engineers and technologists.
                   </span>
@@ -178,13 +165,11 @@ export default function Home() {
                   className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
                   <div className="flex items-start gap-4">
-                    <div
-                      className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                    >
-                      <item.icon className="w-8 h-8 text-gray-900 dark:text-gray-200" />
+                    <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <item.icon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-gray-800 dark:text-white text-xl font-bold mb-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
+                      <h3 className="text-blue-600 dark:text-blue-400 text-xl font-bold mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">

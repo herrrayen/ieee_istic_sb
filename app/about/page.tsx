@@ -90,8 +90,10 @@ export default function AboutPage() {
               {/* Card 1 */}
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                 <div className="flex justify-center mb-6">
-                  <div className="text-4xl p-4 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-600">
-                    💡
+                  <div className="p-4 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">
@@ -108,8 +110,10 @@ export default function AboutPage() {
               {/* Card 2 */}
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                 <div className="flex justify-center mb-6">
-                  <div className="text-4xl p-4 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-600">
-                    🤝
+                  <div className="p-4 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">
@@ -125,8 +129,10 @@ export default function AboutPage() {
               {/* Card 3 */}
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                 <div className="flex justify-center mb-6">
-                  <div className="text-4xl p-4 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-600">
-                    🚀
+                  <div className="p-4 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">
@@ -165,9 +171,9 @@ export default function AboutPage() {
                       />
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Student Branch Counselor</h3>
-                    <h4 className="text-lg font-semibold mb-4 text-blue-600">Prof. Manef Bourougaoui</h4>
+                    <h4 className="text-lg font-semibold mb-4 text-blue-600">Dr. Manef Bourougaoui</h4>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Providing guidance and mentorship to our student branch while connecting us to faculty resources.
+                      Providing guidance and mentorship to our student branch.
                     </p>
                   </div>
                 </div>

@@ -60,13 +60,20 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [visibleSlides, setVisibleSlides] = useState(3);
 
-  // Handle responsive behavior
+  // Handle responsive behavior and scroll correction
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setVisibleSlides(1);
       } else {
         setVisibleSlides(3);
+      }
+      
+      // Re-scroll to the active slide after resize
+      if (carouselRef.current) {
+        setTimeout(() => {
+          scrollToSlide(activeSlide);
+        }, 100);
       }
     };
 
@@ -78,6 +85,16 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
     
     // Clean up
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Initial setup to scroll to first item
+  useEffect(() => {
+    if (carouselRef.current) {
+      // Force initial position
+      setTimeout(() => {
+        scrollToSlide(0);
+      }, 100);
+    }
   }, []);
 
   const scrollToSlide = (index: number) => {
@@ -106,15 +123,21 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden" aria-roledescription="carousel" aria-label="Team Members Carousel">
       {/* Carousel wrapper */}
       <div 
         ref={carouselRef}
         className="flex overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        role="region" 
+        aria-live="polite"
       >
         {members.map((member, index) => (
-          <div key={index} className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+          <div key={index} className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start transition-all duration-300">
+            <div 
+              className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border ${activeSlide === index ? 'border-blue-500 dark:border-blue-400 shadow-xl scale-[1.02]' : 'border-gray-200 dark:border-gray-700'} rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full`}
+              aria-current={activeSlide === index ? "true" : "false"}
+            >
               <div className={`w-28 h-28 rounded-full ${member.isSpecial ? 'bg-gradient-to-r from-purple-400 to-purple-700' : 'bg-gradient-to-r from-blue-400 to-blue-700'} mb-6 flex items-center justify-center overflow-hidden`}>
                 {/* Replace with actual image later */}
                 <div className="text-white text-3xl font-bold">{member.initials}</div>

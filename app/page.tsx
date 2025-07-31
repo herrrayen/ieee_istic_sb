@@ -1,12 +1,36 @@
 "use client";
 import React from "react";
-
+import { Link } from "@heroui/link";
+import { Snippet } from "@heroui/snippet";
+import { Code } from "@heroui/code";
+import { button as buttonStyles } from "@heroui/theme";
+import { siteConfig } from "@/config/site";
+import { title, subtitle } from "@/components/primitives";
+import { GithubIcon } from "@/components/icons";
+import { Card } from "@heroui/card";
+import { Image } from "@heroui/image";
+import { CardBody, CardFooter } from "@heroui/card";
+import { Button } from "@heroui/button";
 import { Network, Briefcase, Users2, ArrowRight, Sparkles } from "lucide-react";
 import { fontLocal } from "@/config/fonts";
 import TextTransition, { presets } from "react-text-transition";
+import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
+import {
+  Carousel,
+  Typography,
+  Button as MTButton,
+} from "@material-tailwind/react";
 
-
-// No longer need to load Google Fonts since we're using local font
+// Add Google Fonts for calligraphy
+const loadGoogleFonts = () => {
+  if (typeof document !== "undefined") {
+    const link = document.createElement("link");
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  }
+};
 
 const TEXTS = [
   "Where Innovation Begins",
@@ -16,8 +40,18 @@ const TEXTS = [
 
 export default function Home() {
   const [index, setIndex] = React.useState(0);
+  const [currentSection, setCurrentSection] = React.useState(0);
+  const [isScrolling, setIsScrolling] = React.useState(false);
 
-  // No longer need to load Google Fonts
+  const sectionRefs = [
+    React.useRef<HTMLElement>(null),
+    React.useRef<HTMLElement>(null),
+    React.useRef<HTMLElement>(null),
+  ];
+
+  React.useEffect(() => {
+    loadGoogleFonts();
+  }, []);
 
   React.useEffect(() => {
     const intervalId = setInterval(
@@ -27,13 +61,139 @@ export default function Home() {
     return () => clearTimeout(intervalId);
   }, []);
 
-  // Removed scroll-based section switching
+  // Scroll-based section switching
+  React.useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+
+      if (isScrolling) return;
+
+      setIsScrolling(true);
+
+      const direction = e.deltaY > 0 ? 1 : -1;
+      const nextSection = Math.max(0, Math.min(2, currentSection + direction));
+
+      if (nextSection !== currentSection) {
+        setCurrentSection(nextSection);
+        if (nextSection === 0) {
+          // For first section, scroll to top of page
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        } else if (nextSection === 2) {
+          // For last section, scroll to start (title area)
+          sectionRefs[nextSection].current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        } else {
+          // For middle sections, scroll to center
+          sectionRefs[nextSection].current?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }
+      setTimeout(() => setIsScrolling(false), 800);
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+
+        if (isScrolling) return;
+
+        setIsScrolling(true);
+
+        const direction = e.key === "ArrowDown" ? 1 : -1;
+        const nextSection = Math.max(
+          0,
+          Math.min(2, currentSection + direction)
+        );
+
+        if (nextSection !== currentSection) {
+          setCurrentSection(nextSection);
+          if (nextSection === 0) {
+            // For first section, scroll to top of page
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          } else if (nextSection === 2) {
+            // For last section, scroll to start (title area)
+            sectionRefs[nextSection].current?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          } else {
+            // For middle sections, scroll to center
+            sectionRefs[nextSection].current?.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }
+
+        setTimeout(() => setIsScrolling(false), 800);
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentSection, isScrolling]);
 
   return (
     <div className="transition-colors duration-300">
+      {/* Enhanced Section Navigation */}
+      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-6">
+        {[0, 1, 2].map((i) => (
+          <button
+            key={i}
+            onClick={() => {
+              setCurrentSection(i);
+              if (i === 0) {
+                // For first section, scroll to top of page
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              } else if (i === 2) {
+                // For last section, scroll to start (title area)
+                sectionRefs[i].current?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              } else {
+                // For middle sections, scroll to center
+                sectionRefs[i].current?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }
+            }}
+            className={`relative w-3 h-3 rounded-full transition-all duration-500 group ${
+              currentSection === i
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 scale-150 shadow-lg shadow-blue-500/50"
+                : "bg-white/60 dark:bg-gray-700/60 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-600/80 hover:scale-125"
+            }`}
+          >
+            {/* Only show pulsing animation for current section */}
+            {currentSection === i && (
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-ping"></div>
+            )}
+          </button>
+        ))}
+      </div>
 
       {/* Hero Section */}
       <section
+        ref={sectionRefs[0]}
         className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden pt-32 pb-16"
       >
         <div className="text-center max-w-6xl w-full px-8">
@@ -45,17 +205,18 @@ export default function Home() {
 
           <div className="mb-12 flex flex-col items-center justify-center h-20 md:h-24">
             <div className="w-full flex justify-center">
-              <div className={`${fontLocal.className} text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic`}
+              <TextTransition
+                springConfig={presets.wobbly}
+                className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic"
                 style={{
+                  fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
                   textShadow: "0 2px 4px rgba(0,0,0,0.1)",
                   textAlign: "center",
                   display: "inline-block",
                 }}
               >
-                <TextTransition springConfig={presets.wobbly}>
-                  {TEXTS[index % TEXTS.length]}
-                </TextTransition>
-              </div>
+                {TEXTS[index % TEXTS.length]}
+              </TextTransition>
             </div>
             <div className="mt-10 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full "></div>
           </div>
@@ -69,23 +230,24 @@ export default function Home() {
 
       {/* Benefits Section */}
       <section
+        ref={sectionRefs[1]}
         className="relative flex flex-col items-center justify-center min-h-screen py-20"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-blue-600 dark:text-blue-400 text-base font-semibold mb-3 tracking-wide">
+                <h3 className="text-blue-600 dark:text-blue-400 text-xl font-semibold mb-4 tracking-wide">
                   JOIN US!
                 </h3>
-                <h2 className="text-2xl md:text-3xl font-bold leading-tight mb-5 text-gray-800 dark:text-white">
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-800 dark:text-white">
                   Networking, Mentorship, and Cutting-Edge Resources!
                 </h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mb-6"></div>
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mb-8"></div>
               </div>
 
-              <ul className="space-y-4 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+              <ul className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
                   <span>
@@ -124,18 +286,21 @@ export default function Home() {
                   title: "Expand Your Network",
                   description:
                     "Meet 450,000+ professionals around the world sharing your passion.",
+                  gradient: "from-blue-500 to-cyan-500",
                 },
                 {
                   icon: Users2,
                   title: "Advance Your Career",
                   description:
                     "Stay ahead with exclusive IEEE tools and learning resources.",
+                  gradient: "from-indigo-500 to-blue-500",
                 },
                 {
                   icon: Briefcase,
                   title: "Grow as a Leader",
                   description:
                     "Mentor, lead teams, and shape tomorrow's tech world.",
+                  gradient: "from-purple-500 to-indigo-500",
                 },
               ].map((item, idx) => (
                 <div
@@ -144,15 +309,15 @@ export default function Home() {
                 >
                   <div className="flex items-start gap-4">
                     <div
-                      className="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 border border-gray-200 dark:border-gray-700"
+                      className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <item.icon className="w-7 h-7 text-gray-800 dark:text-gray-200" />
+                      <item.icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-gray-800 dark:text-white text-lg font-bold mb-1 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-bold mb-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
                         {item.description}
                       </p>
                     </div>
@@ -160,7 +325,7 @@ export default function Home() {
 
                   {/* Accent border */}
                   <div
-                    className="absolute inset-0 bg-gray-200 dark:bg-gray-600 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"
+                    className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
                   ></div>
                 </div>
               ))}
@@ -170,9 +335,9 @@ export default function Home() {
                 href="https://www.ieee.org/membership/benefits/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl py-3 px-4 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md"
+                className="block bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg"
               >
-                <h3 className="text-white text-base font-medium">
+                <h3 className="text-white text-xl font-bold mb-2">
                   Explore More IEEE Benefits!
                 </h3>
               </a>
@@ -183,6 +348,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section
+        ref={sectionRefs[2]}
         className="relative flex flex-col items-center justify-center min-h-screen py-20"
       >
         <div className="w-full max-w-7xl px-6">
@@ -215,8 +381,8 @@ export default function Home() {
                 accent: "border-purple-500/20",
               },
               {
-                image: "/images/testimonials/mouhib.jpg",
-                name: "Mouhib Farhat",
+                image: "/images/testimonials/hideya.jpg",
+                name: "Hideya B'hajyoussef",
                 role: "Active Member",
                 quote:
                   "Being part of this Student Branch has been one of the most rewarding experiences of my academic journey. I've grown both technically and personally.",

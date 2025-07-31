@@ -29,23 +29,20 @@ const config = {
     },
   },
   darkMode: "class",
-  plugins: [
-    heroui({themes: {
-      light: {
-        colors: {
-          primary: {
-            DEFAULT: "#005BC4",
-            foreground: "#000000",
-          },
-          secondary:{
-            DEFAULT: "#FFFFFF ",
-          },
-          focus: "#BEF264",
+  plugins: [heroui({themes: {
+    light: {
+      colors: {
+        primary: {
+          DEFAULT: "#005BC4",
+          foreground: "#000000",
         },
+        secondary:{
+          DEFAULT: "#FFFFFF ",
+        },
+        focus: "#BEF264",
       },
-    }}),
-    require('tailwind-scrollbar-hide')
-  ],
+    },
+  },})],  
 }
 
 module.exports = withMT(config);

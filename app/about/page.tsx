@@ -1,3 +1,48 @@
+'use client';
+
+import TeamCarousel from '@/components/team-carousel';
+
+// Define team members data
+const teamMembers = [
+  {
+    role: "Chairperson",
+    name: "John Doe",
+    description: "Leading our IEEE Student Branch with vision and dedication to create impact through technology.",
+    initials: "CH"
+  },
+  {
+    role: "Vice Chair",
+    name: "Jane Smith",
+    description: "Supporting branch initiatives and helping to coordinate our technical activities.",
+    initials: "VC"
+  },
+  {
+    role: "Secretary",
+    name: "Alex Johnson",
+    description: "Managing communications and ensuring smooth operation of all branch activities.",
+    initials: "SE"
+  },
+  {
+    role: "Treasurer",
+    name: "Maria Garcia",
+    description: "Handling financial planning and ensuring resources are available for our activities.",
+    initials: "TR"
+  },
+  {
+    role: "Webmaster",
+    name: "David Lee",
+    description: "Managing our digital presence and ensuring our technological infrastructure.",
+    initials: "WM"
+  },
+  {
+    role: "Branch Counselor",
+    name: "Prof. Sarah Williams",
+    description: "Providing guidance and mentorship to our student branch while connecting us to faculty resources.",
+    initials: "CO",
+    isSpecial: true
+  }
+];
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col gap-8">
@@ -104,6 +149,138 @@ export default function AboutPage() {
                   issues, we support students who want to make a difference
                   through innovation.
                 </p>
+              </div>
+            </div>
+
+            {/* ExCom and Counselor Section */}
+            <div className="w-full max-w-7xl mt-20">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                  Meet Our Team
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-700 mx-auto rounded-full"></div>
+                <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">
+                  Dedicated leaders working to create opportunities for our members
+                </p>
+              </div>
+              
+              {/* Carousel container */}
+              <div className="relative overflow-hidden">
+                {/* Carousel wrapper */}
+                <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
+                  
+                  {/* ExCom Card 1 */}
+                  <div className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
+                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 mb-6 flex items-center justify-center overflow-hidden">
+                        {/* Replace with actual image */}
+                        <div className="text-white text-3xl font-bold">CH</div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Chairperson</h3>
+                      <h4 className="text-lg font-semibold mb-4 text-blue-600">Hamza Mellouli</h4>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        Leading our IEEE Student Branch with vision and dedication to create impact through technology.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* ExCom Card 2 */}
+                  <div className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
+                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 mb-6 flex items-center justify-center overflow-hidden">
+                        {/* Replace with actual image */}
+                        <div className="text-white text-3xl font-bold">VC</div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Vice Chair</h3>
+                      <h4 className="text-lg font-semibold mb-4 text-blue-600">Yosri Ziadi</h4>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        Supporting branch initiatives and helping to coordinate our technical activities.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* ExCom Card 3 */}
+                  <div className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
+                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 mb-6 flex items-center justify-center overflow-hidden">
+                        {/* Replace with actual image */}
+                        <div className="text-white text-3xl font-bold">SE</div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Secretary</h3>
+                      <h4 className="text-lg font-semibold mb-4 text-blue-600">Maram El Kamel</h4>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        Managing communications and ensuring smooth operation of all branch activities.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* ExCom Card 4 */}
+                  <div className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
+                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 mb-6 flex items-center justify-center overflow-hidden">
+                        {/* Replace with actual image */}
+                        <div className="text-white text-3xl font-bold">TR</div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Treasurer</h3>
+                      <h4 className="text-lg font-semibold mb-4 text-blue-600">Fatma Boughanmi</h4>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        Handling financial planning and ensuring resources are available for our activities.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* ExCom Card 5 */}
+                  <div className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
+                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 mb-6 flex items-center justify-center overflow-hidden">
+                        {/* Replace with actual image */}
+                        <div className="text-white text-3xl font-bold">WM</div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Webmaster</h3>
+                      <h4 className="text-lg font-semibold mb-4 text-blue-600">Mohamed Rayen Trabelsi</h4>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        Managing our digital presence and ensuring our technological infrastructure.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Counselor Card */}
+                  <div className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 snap-start">
+                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-r from-purple-400 to-purple-700 mb-6 flex items-center justify-center overflow-hidden">
+                        {/* Replace with actual image */}
+                        <div className="text-white text-3xl font-bold">CO</div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Student Branch Counselor</h3>
+                      <h4 className="text-lg font-semibold mb-4 text-blue-600">Prof. Manef  Bourougaoui</h4>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        Providing guidance and mentorship to our student branch while connecting us to faculty resources.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Navigation arrows - optional */}
+                <button className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 rounded-full p-2 text-gray-800 dark:text-white hover:bg-blue-600 hover:text-white transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 rounded-full p-2 text-gray-800 dark:text-white hover:bg-blue-600 hover:text-white transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                
+                {/* Carousel dots/indicators */}
+                <div className="flex justify-center mt-6">
+                  <div className="w-3 h-3 rounded-full bg-blue-600 mx-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-1"></div>
+                </div>
               </div>
             </div>
           </div>

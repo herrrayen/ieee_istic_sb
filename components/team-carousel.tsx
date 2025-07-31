@@ -47,13 +47,6 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
       name: "Mohamed Rayen Trabelsi",
       description: "Managing our digital presence and ensuring our technological infrastructure.",
       image: "/images/team/rayen.jpg" // Placeholder image
-    },
-    {
-      role: "Student Branch Counselor",
-      name: "Prof. Manef Bourougaoui",
-      description: "Providing guidance and mentorship to our student branch while connecting us to faculty resources.",
-      image: "/images/testimonials/manef.jpg", // Using existing image
-      isSpecial: true
     }
   ];
 
@@ -128,7 +121,7 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
       {/* Carousel wrapper */}
       <div 
         ref={carouselRef}
-        className="flex overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide"
+        className="flex overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide pt-4"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         role="region" 
         aria-live="polite"

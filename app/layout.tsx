@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#f0f9ff" }, // blue-50
+    { media: "(prefers-color-scheme: dark)", color: "#020617" }, // slate-950
   ],
 };
 
@@ -33,26 +33,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="bg-fixed bg-gradient-to-tl from-blue-200 via-white to-pink-100 dark:bg-gradient-to-tl dark:from-gray-900 dark:via-slate-800 dark:to-purple-900">
-      <head className=""></head>
+    <html suppressHydrationWarning lang="en">
+      <head></head>
       <body
         className={clsx(
-          "min-h-screen text-foreground font-sans antialiased",
+          "min-h-screen text-foreground font-sans antialiased transition-colors duration-300",
           fontSans.variable,
           fontLocal.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "system", enableSystem: true }}>
+          {/* Fixed background that responds to theme changes */}
+          <div className="fixed inset-0 -z-50 bg-gradient-to-br from-blue-100 via-white to-pink-50 dark:bg-gradient-to-br dark:from-slate-950 dark:via-gray-900 dark:to-blue-950 transition-colors duration-300" />
+          
           {/* Navbar outside of main container */}
           <Navbar />
           
           {/* Main content with proper spacing */}
-          <main className="min-h-screen">
+          <main className="min-h-screen text-gray-900 dark:text-gray-100 relative z-10">
             {children}
           </main>
           
           {/* Footer */}
-          <footer className="bg-blue-900 text-white py-12 w-full">
+          <footer className="bg-blue-900 dark:bg-slate-800 text-white py-12 w-full relative z-10 transition-colors duration-300">
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* About Section */}
@@ -141,7 +144,7 @@ export default function RootLayout({
               </div>
               
               {/* Copyright Bar */}
-              <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+              <div className="border-t border-gray-700 dark:border-gray-600 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
                 <p className="text-sm text-gray-400 text-center md:text-left">
                   © 2025 IEEE ISTIC Student Branch. All rights reserved.
                 </p>

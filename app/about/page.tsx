@@ -12,18 +12,27 @@ export default function AboutPage() {
               <img 
                 src="/images/logos/logo istic.png" 
                 alt="IEEE ISTIC Logo" 
-                className="w-max md:w-full max-w-xs md:max-w-sm h-auto object-contain"
+                className="w-max md:w-full max-w-xs md:max-w-sm h-auto object-contain block dark:hidden"
+              />
+              <img 
+                src="/images/logos/logo istic white.png" 
+                alt="IEEE ISTIC Logo" 
+                className="w-max md:w-full max-w-xs md:max-w-sm h-auto object-contain hidden dark:block"
               />
             </div>
             
             {/* Vertical divider line - visible on md screens and up */}
-            <div className="hidden md:block w-px h-64 bg-gradient-to-b from-blue-400 to-cyan-400 mx-8"></div>
+            <div className="hidden md:block w-px h-64 bg-gradient-to-b from-blue-400 to-cyan-400 mx-8">
+              <div></div>
+            </div>
             
             <div className="w-full md:w-2/3 text-center md:text-left pl-0 md:pl-8">
-              <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
-                About IEEE ISTIC SB
-              </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto md:mx-0 rounded-full"></div>
+              <div>
+                <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
+                  About IEEE ISTIC SB
+                </h1>
+                <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto md:mx-0 rounded-full"></div>
+              </div>
               
               <div className="mt-10 text-xl text-gray-700 dark:text-gray-300">
                 <p className="leading-relaxed">
@@ -133,8 +142,8 @@ export default function AboutPage() {
               <div className="overflow-hidden w-full">
                 <TeamCarousel />
               </div>
-            </div>
           </div>
+        </div>
         </div>
       </section>
     </div>

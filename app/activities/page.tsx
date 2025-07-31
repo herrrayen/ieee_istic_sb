@@ -84,7 +84,7 @@ export default function ActivitiesPage() {
         <div className="flex flex-col items-center">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 mb-4">
               Our Activities
             </h1>
             <div className="w-32 h-1 bg-blue-600 mx-auto rounded-full"></div>
@@ -122,9 +122,8 @@ export default function ActivitiesPage() {
                     <Image
                       src={event.image}
                       alt={event.title}
-                      layout="fill"
-                      objectFit="cover"
-                      className="transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute bottom-4 left-4 z-20 flex items-center">
                       <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-lg flex items-center">
@@ -215,9 +214,8 @@ export default function ActivitiesPage() {
                     <Image
                       src={event.image}
                       alt={event.title}
-                      layout="fill"
-                      objectFit="cover"
-                      className="transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute bottom-4 left-4 z-20 flex items-center">
                       <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-lg flex items-center">

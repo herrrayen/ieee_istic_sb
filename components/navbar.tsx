@@ -37,7 +37,7 @@ export const Navbar = () => {
       position="sticky"
       className={clsx(
         "transition-all duration-300 pt-5 z-50",
-      "bg-transparent shadow-none"
+        "bg-transparent shadow-none"
       )}
       isBlurred={false}
       isMenuOpen={isMenuOpen}
@@ -47,11 +47,11 @@ export const Navbar = () => {
         "w-full px-4 py-4 sm:p-8 rounded-2xl sm:rounded-4xl flex justify-between items-center mx-4 sm:mx-0 transition-all duration-300",
         isScrolled 
           ? "bg-white/90 dark:bg-gray-800/90 shadow-lg backdrop-blur-sm" 
-          : "bg-white shadow-xl"
+          : "bg-white/95 dark:bg-gray-800/95 shadow-xl backdrop-blur-sm"
       )}>
-        <NavbarBrand as="li" className="justify-start ">
+        <NavbarBrand as="li" className="justify-start">
           <NextLink className="flex gap-50" href="/">
-            <Image isBlurred={true} src="/logo.png"   className="w-53" />
+            <Image isBlurred={true} src="/logo.png" className="w-53" />
           </NextLink>
         </NavbarBrand>
 
@@ -62,7 +62,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "primary", size: "md" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center "
+                  "data-[active=true]:text-primary data-[active=true]:font-medium justify-center"
                 )}
                 color="secondary"
                 href={item.href}
@@ -78,22 +78,24 @@ export const Navbar = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="md:hidden ml-4"
         />
+        
         <NavbarItem>
-            <Button 
-              as={Link}
-              href="https://ieee.org/membership/join"
-              target="_blank"
-              variant="light"
-              className="relative font-medium text-white overflow-hidden transition-scale duration-500 hover:scale-110 bg-gradient-to-r from-blue-500 to-blue-300 border-none"
-            >
-              Join Us
-            </Button>
-          </NavbarItem>
+          <Button 
+            as={Link}
+            href="https://ieee.org/membership/join"
+            target="_blank"
+            variant="light"
+            className="relative font-medium text-white overflow-hidden transition-scale duration-500 hover:scale-110 bg-gradient-to-r from-blue-500 to-blue-300 border-none"
+          >
+            Join Us
+          </Button>
+        </NavbarItem>
+        
         <ThemeSwitch />
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu>
+      <NavbarMenu className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item.href}-${index}`}>

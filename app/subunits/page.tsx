@@ -27,7 +27,7 @@ export default function SubunitsPage() {
                 <div className="md:w-1/3 flex justify-center">
                   <div className="h-36 md:h-44 flex items-center justify-center">
                     <Image 
-                      src="/images/logos/cs-logo.jpg" 
+                      src="/images/logos/cs-logo.png" 
                       alt="Computer Society Logo" 
                       width={200} 
                       height={160}
@@ -163,7 +163,7 @@ export default function SubunitsPage() {
                 <div className="md:w-1/3 flex justify-center">
                   <div className="h-36 md:h-44 flex items-center justify-center">
                     <Image 
-                      src="/images/logos/sight-logo.jpeg" 
+                      src="/images/logos/sight-logo.png" 
                       alt="Special Interest Group for Humanitarian Technologies Logo" 
                       width={150} 
                       height={120}
@@ -192,7 +192,7 @@ export default function SubunitsPage() {
                 <div className="md:w-1/3 flex justify-center">
                   <div className="h-36 md:h-44 flex items-center justify-center">
                     <Image 
-                      src="/images/logos/wie-logo.jpg" 
+                      src="/images/logos/wie-logo.png" 
                       alt="Women In Engineering Logo" 
                       width={150} 
                       height={130}

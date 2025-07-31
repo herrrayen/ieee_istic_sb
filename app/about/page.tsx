@@ -17,7 +17,7 @@ export default function AboutPage() {
             </div>
             
             {/* Vertical divider line - visible on md screens and up */}
-            <div className="hidden md:block w-px h-64 bg-gradient-to-b from-blue-400 to-purple-400 mx-8"></div>
+            <div className="hidden md:block w-px h-64 bg-gradient-to-b from-blue-400 to-cyan-400 mx-8"></div>
             
             <div className="w-full md:w-2/3 text-center md:text-left pl-0 md:pl-8">
               <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
@@ -44,7 +44,7 @@ export default function AboutPage() {
               href="https://www.ieee.org/membership/join/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 inline-flex items-center"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-300 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 inline-flex items-center"
             >
               <span>Join Us</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">

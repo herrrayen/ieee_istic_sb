@@ -224,10 +224,10 @@ export default function Home() {
       >
         <div className="w-full max-w-7xl px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-600 mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 mb-4">
               What Our Members Say
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-orange-400 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
           </div>
 
           {/* Grid Layout for Testimonials */}
@@ -252,8 +252,8 @@ export default function Home() {
                 accent: "border-purple-500/20",
               },
               {
-                image: "/images/testimonials/hideya.jpg",
-                name: "Hideya B'hajyoussef",
+                image: "/images/testimonials/mouhib.jpg",
+                name: "Mouhib Farhat",
                 role: "Active Member",
                 quote:
                   "Being part of this Student Branch has been one of the most rewarding experiences of my academic journey. I've grown both technically and personally.",

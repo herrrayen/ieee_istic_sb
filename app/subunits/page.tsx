@@ -7,10 +7,10 @@ export default function SubunitsPage() {
       <section className="container mx-auto py-12">
         <div className="flex flex-col items-center">
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
               IEEE ISTIC SB Subunits
             </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-700 mx-auto rounded-full"></div>
             
             <div className="mt-10 text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
               <p className="leading-relaxed">

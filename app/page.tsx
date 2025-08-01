@@ -91,7 +91,7 @@ export default function Home() {
         className="relative flex flex-col items-center justify-center py-20"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Left Side - Content */}
             <div className="space-y-2">
               <div>
@@ -184,20 +184,25 @@ export default function Home() {
                   ></div>
                 </div>
               ))}
-
-              {/* Register Button */}
-              <a
-                href="https://www.ieee.org/membership/benefits/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-3 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md w-fit mx-auto"
-              >
-                <span className="text-white font-medium text-base flex items-center">
-                  Explore More IEEE Benefits
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </span>
-              </a>
             </div>
+          </div>
+          
+          {/* Benefits Button - Centered on screen */}
+          <div className="w-full flex justify-center mt-12">
+            <a
+              href="https://www.ieee.org/membership/benefits/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-3 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md w-fit"
+            >
+              <span
+                className="text-white font-medium text-base flex items-center
+                justify-center"
+              >
+                Explore More IEEE Benefits
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </span>
+            </a>
           </div>
         </div>
       </section>
@@ -223,7 +228,7 @@ export default function Home() {
                 name: "Hamza Mellouli",
                 role: "Student Branch Chair",
                 quote:
-                  "Leading this Student Branch has been an incredible journey. I'm proud of what we've accomplished together and excited for the future we're building—one driven by innovation, teamwork, and passion for engineering.",
+                  "Leading this Student Branch has been an incredible journey. I'm deeply grateful for meeting and working with these amazing people. I'm proud of what we've accomplished together and excited for the future we're building, one driven by innovation and teamwork.",
                 gradient: "from-blue-600 to-purple-600",
                 accent: "border-blue-500/20",
               },

@@ -22,6 +22,19 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Add body overflow control when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -37,7 +50,7 @@ export const Navbar = () => {
       position="sticky"
       className={clsx(
         "transition-all duration-300 pt-5 z-50",
-        "bg-transparent shadow-none"
+        "bg-transparent shadow-none fixed"
       )}
       isBlurred={false}
       isMenuOpen={isMenuOpen}
@@ -76,10 +89,16 @@ export const Navbar = () => {
         {/* Mobile Menu Toggle - visible on small screens */}
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden ml-4"
+          className="md:hidden ml-4 focus:outline-none"
+          style={{
+            width: "36px",
+            height: "36px",
+            padding: "0.5rem"
+          }}
         />
         
-        <NavbarItem>
+        {/* Join Us Button - only visible on desktop */}
+        <NavbarItem className="hidden md:flex">
           <Button 
             as={Link}
             href="https://ieee.org/membership/join"
@@ -95,14 +114,14 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+      <NavbarMenu className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm pt-0 pb-16 mt-0 fixed inset-0">
+        <div className="mx-4 mt-20 flex flex-col gap-4">
           {siteConfig.navItems.map((item, index) => (
-            <NavbarMenuItem key={`${item.href}-${index}`}>
+            <NavbarMenuItem key={`${item.href}-${index}`} className="py-2 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "w-full text-lg"
+                  "w-full text-lg font-medium py-2"
                 )}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
@@ -111,6 +130,20 @@ export const Navbar = () => {
               </NextLink>
             </NavbarMenuItem>
           ))}
+          
+          {/* Join Us Button in Mobile Menu */}
+          <NavbarMenuItem className="mt-8">
+            <Button 
+              as={Link}
+              href="https://ieee.org/membership/join"
+              target="_blank"
+              variant="light"
+              className="relative font-medium text-white overflow-hidden transition-scale duration-500 hover:scale-110 bg-gradient-to-r from-blue-600 to-blue-400 border-none w-full py-4 text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Join Us
+            </Button>
+          </NavbarMenuItem>
         </div>
       </NavbarMenu>
     </HeroUINavbar>

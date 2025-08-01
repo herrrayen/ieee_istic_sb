@@ -1,10 +1,11 @@
 "use client";
 
 import TeamCarousel from "@/components/team-carousel";
+import TestimonialCarousel from "@/components/testimonial-carousel";
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 pt-20">
       <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="flex flex-col items-center">
           <div className="flex flex-col md:flex-row items-center mb-12 w-full">
@@ -34,7 +35,7 @@ export default function AboutPage() {
             <div className="hidden md:block w-px h-64 bg-gradient-to-b from-blue-400 to-cyan-400 mx-8">
               <div></div>
             </div>
-            <div className="w-full md:w-1/3 flex justify-center md:justify-end pr-0 md:pr-8 mb-8 md:mb-0">
+            <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end pr-0 md:pr-8 mb-8 md:mb-0">
               <img
                 src="/images/logos/logo istic.png"
                 alt="IEEE ISTIC Logo"
@@ -48,12 +49,12 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center">
             <a
               href="https://www.ieee.org/membership/join/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-300 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 inline-flex items-center"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-300 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
             >
               <span>Join Us</span>
               <svg
@@ -70,7 +71,7 @@ export default function AboutPage() {
               </svg>
             </a>
 
-            <span className="ml-6 text-gray-600 dark:text-gray-400 self-center">
+            <span className="mt-4 sm:mt-0 sm:ml-6 text-gray-600 dark:text-gray-400 self-center text-center">
               Join 400,000+ Engineers worldwide
             </span>
           </div>
@@ -144,6 +145,24 @@ export default function AboutPage() {
                   issues, we support students who want to make a difference
                   through innovation.
                 </p>
+              </div>
+            </div>
+            
+            {/* Testimonials Section */}
+            <div className="w-full max-w-7xl mt-16 sm:mt-20 mb-16">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                  What Our Members Say
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
+                <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">
+                  Experiences and stories from our IEEE community
+                </p>
+              </div>
+              
+              {/* Testimonial Carousel */}
+              <div className="max-w-4xl mx-auto px-4">
+                <TestimonialCarousel />
               </div>
             </div>
 

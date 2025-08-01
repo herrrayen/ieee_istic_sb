@@ -26,7 +26,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 pt-20">
       <section className="container mx-auto py-12">
         <div className="flex flex-col items-center">
           <div className="text-center mb-12">
@@ -48,7 +48,7 @@ export default function ContactPage() {
             {/* Phone Card */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col items-center justify-center h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -79,13 +79,13 @@ export default function ContactPage() {
               </div>
 
               {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
 
             {/* Email Card */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col items-center justify-center h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -116,13 +116,13 @@ export default function ContactPage() {
               </div>
 
               {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
 
             {/* Visit Card */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col items-center justify-center h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-300 to-blue-500 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -163,7 +163,7 @@ export default function ContactPage() {
               </div>
 
               {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-red-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
           </div>
 

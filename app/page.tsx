@@ -15,6 +15,7 @@ import { Network, Briefcase, Users2, ArrowRight, Sparkles } from "lucide-react";
 import { fontLocal } from "@/config/fonts";
 import TextTransition, { presets } from "react-text-transition";
 import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
+import TestimonialCarousel from "@/components/testimonial-carousel";
 import {
   Carousel,
   Typography,
@@ -53,14 +54,14 @@ export default function Home() {
         id="hero"
         className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden pt-32 pb-16"
       >
-        <div className="text-center max-w-6xl w-full px-8">
-          <div className="mb-8">
+        <div className="text-center max-w-6xl w-full px-8 relative z-10">
+          <div className="mb-8 relative z-10">
             <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold text-center">
               Welcome to IEEE ISTIC SB
             </h1>
           </div>
 
-          <div className="mb-12 flex flex-col items-center justify-center h-20 md:h-24">
+          <div className="mb-12 flex flex-col items-center justify-center h-20 md:h-24 relative z-10">
             <div className="w-full flex justify-center">
               <TextTransition
                 springConfig={presets.wobbly}
@@ -210,94 +211,52 @@ export default function Home() {
       {/* Testimonials Section */}
       <section
         id="testimonials"
-        className="relative flex flex-col items-center justify-center py-20"
+        className="relative flex flex-col items-center justify-center py-16 mt-8"
       >
         <div className="w-full max-w-7xl px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 mb-4">
               What Our Members Say
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
           </div>
 
-          {/* Grid Layout for Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                image: "/images/testimonials/hamza.jpg",
-                name: "Hamza Mellouli",
-                role: "Student Branch Chair",
-                quote:
-                  "Leading this Student Branch has been an incredible journey. I'm deeply grateful for meeting and working with these amazing people. I'm proud of what we've accomplished together and excited for the future we're building, one driven by innovation and teamwork.",
-                gradient: "from-blue-600 to-purple-600",
-                accent: "border-blue-500/20",
-              },
-              {
-                image: "/images/testimonials/manef.jpg",
-                name: "Manef Bourogaoui",
-                role: "Student Branch Counselor",
-                quote:
-                  "It has been a privilege to guide and support such a motivated and dynamic group of students. Their dedication to excellence, leadership, and innovation reflects the true spirit of IEEE.",
-                gradient: "from-purple-600 to-pink-600",
-                accent: "border-purple-500/20",
-              },
-              {
-                image: "/images/testimonials/mouhib.jpg",
-                name: "Mouhib Farhat",
-                role: "Active Member",
-                quote:
-                  "Being part of this Student Branch has been one of the most rewarding experiences of my academic journey. I've grown both technically and personally.",
-                gradient: "from-blue-600 to-cyan-600",
-                accent: "border-emerald-500/20",
-              },
-            ].map((testimonial, idx) => (
-              <div
-                key={idx}
-                className={`group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border ${testimonial.accent} dark:border-gray-700 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-white/10`}
-              >
-                {/* Quote Icon */}
-                <div className="absolute top-4 right-4 text-4xl text-gray-200 dark:text-gray-600 group-hover:text-gray-300 dark:group-hover:text-gray-500 transition-colors">
-                  "
-                </div>
-
-                {/* Profile Section */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="relative">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-r ${testimonial.gradient} rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity`}
-                    ></div>
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="relative w-16 h-16 rounded-full object-cover border-2 border-white dark:border-gray-700 shadow-lg"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
-                      {testimonial.name}
-                    </h3>
-                    <p
-                      className={`text-sm font-medium bg-gradient-to-r ${testimonial.gradient} bg-clip-text text-transparent`}
-                    >
-                      {testimonial.role}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Quote */}
-                <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 leading-relaxed text-sm transition-colors">
-                  "{testimonial.quote}"
-                </p>
-
-                {/* Accent Line */}
-                <div
-                  className={`mt-6 h-1 bg-gradient-to-r ${testimonial.gradient} rounded-full opacity-60 group-hover:opacity-100 transition-opacity`}
-                ></div>
-              </div>
-            ))}
+          {/* Testimonial Carousel */}
+          <div className="max-w-xl mx-auto mt-6">
+            <TestimonialCarousel
+              testimonials={[
+                {
+                  image: "/images/testimonials/hamza.jpg",
+                  name: "Hamza Mellouli",
+                  role: "Student Branch Chair",
+                  quote:
+                    "Leading this Student Branch has been an incredible journey. I'm deeply grateful for meeting and working with these amazing people. I'm proud of what we've accomplished together and excited for the future we're building, one driven by innovation and teamwork.",
+                  gradient: "from-blue-600 to-purple-600",
+                  accent: "border-blue-500/20",
+                },
+                {
+                  image: "/images/testimonials/manef.jpg",
+                  name: "Manef Bourogaoui",
+                  role: "Student Branch Counselor",
+                  quote:
+                    "It has been a privilege to guide and support such a motivated and dynamic group of students. Their dedication to excellence, leadership, and innovation reflects the true spirit of IEEE.",
+                  gradient: "from-purple-600 to-pink-600",
+                  accent: "border-purple-500/20",
+                },
+                {
+                  image: "/images/testimonials/mouhib.jpg",
+                  name: "Mouhib Farhat",
+                  role: "Active Member",
+                  quote:
+                    "Being part of this Student Branch has been one of the most rewarding experiences of my academic journey. I've grown both technically and personally.",
+                  gradient: "from-blue-600 to-cyan-600",
+                  accent: "border-emerald-500/20",
+                },
+              ]}
+            />
           </div>
         </div>
       </section>
     </div>
   );
-}
+} 

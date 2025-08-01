@@ -1,7 +1,6 @@
 "use client";
 
 import TeamCarousel from "@/components/team-carousel";
-import TestimonialCarousel from "@/components/testimonial-carousel";
 
 export default function AboutPage() {
   return (
@@ -145,24 +144,6 @@ export default function AboutPage() {
                   issues, we support students who want to make a difference
                   through innovation.
                 </p>
-              </div>
-            </div>
-            
-            {/* Testimonials Section */}
-            <div className="w-full max-w-7xl mt-16 sm:mt-20 mb-16">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-                  What Our Members Say
-                </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
-                <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">
-                  Experiences and stories from our IEEE community
-                </p>
-              </div>
-              
-              {/* Testimonial Carousel */}
-              <div className="max-w-4xl mx-auto px-4">
-                <TestimonialCarousel />
               </div>
             </div>
 

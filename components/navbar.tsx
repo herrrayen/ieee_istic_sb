@@ -257,7 +257,7 @@ export const Navbar = () => {
             transitionDelay: isMenuOpen ? `${siteConfig.navItems.length * 100 + 600}ms` : '0ms' 
           }}>
             <div className=" text-blue-700 text-sm text-center">
-              <p className="font-light">IEEE Student Branch</p>
+              <p className="font-light">IEEE ISTIC Student Branch</p>
               <p className="text-xs opacity-75 mt-1">Advancing Technology for Humanity</p>
             </div>
           </div>

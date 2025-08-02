@@ -13,8 +13,8 @@ import { Link } from "@heroui/link";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { useState , useEffect } from "react";
-import {Image} from "@heroui/image";
+import { useState, useEffect } from "react";
+import { Image } from "@heroui/image";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 
@@ -25,32 +25,32 @@ export const Navbar = () => {
   // Add body overflow control when mobile menu is open and apply custom styles
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      document.body.style.height = '100%';
-      
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      document.body.style.height = "100%";
+
       // Fix for menu display on mobile
-      document.documentElement.style.overflow = 'hidden';
-      document.documentElement.style.height = '100vh';
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.height = "100vh";
     } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
-      
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+
       // Reset styles when menu closes
-      document.documentElement.style.overflow = '';
-      document.documentElement.style.height = '';
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.height = "";
     }
-    
+
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
-      document.documentElement.style.overflow = '';
-      document.documentElement.style.height = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.height = "";
     };
   }, [isMenuOpen]);
 
@@ -59,8 +59,8 @@ export const Navbar = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -71,17 +71,19 @@ export const Navbar = () => {
         "transition-all duration-300 z-50",
         "bg-transparent shadow-none fixed top-0 left-0 right-0 w-screen"
       )}
-      style={{ width: '100vw' }}
+      style={{ width: "100vw" }}
       isBlurred={false}
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className={clsx(
-        "w-full px-4 py-4 sm:p-8 rounded-2xl sm:rounded-4xl flex justify-between items-center mx-auto sm:mx-auto mt-4 transition-all duration-300",
-        isScrolled 
-          ? "bg-white/90 dark:bg-gray-800/90 shadow-lg backdrop-blur-sm" 
-          : "bg-white/95 dark:bg-gray-800/95 shadow-xl backdrop-blur-sm"
-      )}>
+      <NavbarContent
+        className={clsx(
+          "w-full px-4 py-4 sm:p-8 rounded-2xl sm:rounded-4xl flex justify-between items-center mx-auto sm:mx-auto mt-4 transition-all duration-300",
+          isScrolled
+            ? "bg-white/90 dark:bg-gray-800/90 shadow-lg backdrop-blur-sm"
+            : "bg-white/95 dark:bg-gray-800/95 shadow-xl backdrop-blur-sm"
+        )}
+      >
         <NavbarBrand as="li" className="justify-start">
           <NextLink className="flex gap-50" href="/">
             <Image isBlurred={true} src="/logo.png" className="w-53" />
@@ -116,24 +118,30 @@ export const Navbar = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           <div className="relative w-6 h-6 flex flex-col justify-center items-center">
-            <span className={clsx(
-              "block absolute h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transform transition duration-500 ease-in-out",
-              isMenuOpen ? "rotate-45" : "-translate-y-1.5"
-            )} />
-            <span className={clsx(
-              "block absolute h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transform transition duration-300 ease-in-out",
-              isMenuOpen ? "opacity-0" : ""
-            )} />
-            <span className={clsx(
-              "block absolute h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transform transition duration-500 ease-in-out",
-              isMenuOpen ? "-rotate-45" : "translate-y-1.5"
-            )} />
+            <span
+              className={clsx(
+                "block absolute h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transform transition duration-500 ease-in-out",
+                isMenuOpen ? "rotate-45" : "-translate-y-1.5"
+              )}
+            />
+            <span
+              className={clsx(
+                "block absolute h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transform transition duration-300 ease-in-out",
+                isMenuOpen ? "opacity-0" : ""
+              )}
+            />
+            <span
+              className={clsx(
+                "block absolute h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transform transition duration-500 ease-in-out",
+                isMenuOpen ? "-rotate-45" : "translate-y-1.5"
+              )}
+            />
           </div>
         </div>
-        
+
         {/* Join Us Button - only visible on desktop */}
         <NavbarItem className="hidden md:flex">
-          <Button 
+          <Button
             as={Link}
             href="https://ieee.org/membership/join"
             target="_blank"
@@ -144,33 +152,30 @@ export const Navbar = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </Button>
         </NavbarItem>
-        
+
         <ThemeSwitch />
       </NavbarContent>
 
       {/* Mobile Menu - Clean Full Screen Overlay */}
-      <NavbarMenu 
+      <NavbarMenu
         className={clsx(
           "!fixed !inset-0 !m-0 !p-0 !h-screen !w-screen !max-h-none !max-w-none z-40 overflow-hidden transition-all duration-500 ease-in-out bg-white dark:bg-gray-900",
-          isMenuOpen 
-            ? "opacity-100 visible" 
-            : "opacity-0 invisible"
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
-        style={{ 
-          position: 'fixed',
+        style={{
+          position: "fixed",
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          margin: 0, 
+          margin: 0,
           padding: 0,
-          height: '100vh',
-          width: '100vw',
-          maxHeight: 'none',
-          maxWidth: 'none',
+          height: "100vh",
+          width: "100vw",
+          maxHeight: "none",
+          maxWidth: "none",
         }}
       >
-
         {/* Content Container */}
         <div className="flex flex-col justify-center items-center h-full w-full p-8">
           {/* Close Button */}
@@ -197,8 +202,8 @@ export const Navbar = () => {
           {/* Navigation Items */}
           <div className="flex flex-col items-center gap-2 mb-12">
             {siteConfig.navItems.map((item, index) => (
-              <NavbarMenuItem 
-                key={`${item.href}-${index}`} 
+              <NavbarMenuItem
+                key={`${item.href}-${index}`}
                 className="text-center"
               >
                 <NextLink
@@ -211,20 +216,22 @@ export const Navbar = () => {
               </NavbarMenuItem>
             ))}
           </div>
-          
+
           {/* Premium Join Us Button */}
-          <NavbarMenuItem 
+          <NavbarMenuItem
             className={clsx(
               "transform transition-all duration-700 ease-out",
-              isMenuOpen 
-                ? "translate-y-0 opacity-100" 
+              isMenuOpen
+                ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
             )}
-            style={{ 
-              transitionDelay: isMenuOpen ? `${siteConfig.navItems.length * 100 + 400}ms` : '0ms' 
+            style={{
+              transitionDelay: isMenuOpen
+                ? `${siteConfig.navItems.length * 100 + 400}ms`
+                : "0ms",
             }}
           >
-            <Button 
+            <Button
               as={Link}
               href="https://ieee.org/membership/join"
               target="_blank"
@@ -233,13 +240,18 @@ export const Navbar = () => {
             >
               <span className="relative z-10 flex items-center gap-3">
                 Join Us
-                <svg 
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
@@ -247,18 +259,24 @@ export const Navbar = () => {
           </NavbarMenuItem>
 
           {/* Social Links or Additional Info */}
-          <div className={clsx(
-            "absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-6 transition-all duration-700 ease-out",
-            isMenuOpen 
-              ? "translate-y-0 opacity-100" 
-              : "translate-y-8 opacity-0"
-          )}
-          style={{ 
-            transitionDelay: isMenuOpen ? `${siteConfig.navItems.length * 100 + 600}ms` : '0ms' 
-          }}>
+          <div
+            className={clsx(
+              "absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-6 transition-all duration-700 ease-out",
+              isMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            )}
+            style={{
+              transitionDelay: isMenuOpen
+                ? `${siteConfig.navItems.length * 100 + 600}ms`
+                : "0ms",
+            }}
+          >
             <div className=" text-blue-700 text-sm text-center">
               <p className="font-light">IEEE ISTIC Student Branch</p>
-              <p className="text-xs opacity-75 mt-1">Advancing Technology for Humanity</p>
+              <p className="text-xs opacity-75 mt-1">
+                Advancing Technology for Humanity
+              </p>
             </div>
           </div>
         </div>

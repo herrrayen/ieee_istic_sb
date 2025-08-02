@@ -1,29 +1,8 @@
 "use client";
 import React from "react";
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { Card } from "@heroui/card";
-import { Image } from "@heroui/image";
-import { CardBody, CardFooter } from "@heroui/card";
-import { Button } from "@heroui/button";
 import { Network, Briefcase, Users2, ArrowRight, Sparkles } from "lucide-react";
-import { fontLocal } from "@/config/fonts";
-import TextTransition, { presets } from "react-text-transition";
-import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
+import Typewriter from "@/cuicui/other/text-animation/typewritter/typewritter";
 import TestimonialCarousel from "@/components/testimonial-carousel";
-import {
-  Carousel,
-  Typography,
-  Button as MTButton,
-} from "@material-tailwind/react";
-
-// Font loading is now handled through Next.js font system
-// Using local font defined in config/fonts.ts
 
 const TEXTS = [
   "Where Innovation Begins",
@@ -32,29 +11,21 @@ const TEXTS = [
 ];
 
 export default function Home() {
-  const [index, setIndex] = React.useState(0);
   const sectionRefs = [
     React.useRef<HTMLElement>(null),
     React.useRef<HTMLElement>(null),
     React.useRef<HTMLElement>(null),
   ];
 
-  React.useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      3000 // every 3 seconds
-    );
-    return () => clearTimeout(intervalId);
-  }, []);
-
   return (
+    
     <div className="transition-colors duration-300">
       {/* Hero Section */}
       <section
         id="hero"
         className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden pt-32 pb-16"
       >
-        <div className="text-center max-w-6xl w-full px-8 relative z-10">
+        <div className="text-center mueax-w-6xl w-full px-8 relative z-10">
           <div className="mb-8 relative z-10">
             <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-sans text-4xl md:text-6xl lg:text-7xl font-bold text-center">
               Welcome to IEEE ISTIC SB
@@ -62,21 +33,23 @@ export default function Home() {
           </div>
 
           <div className="mb-12 flex flex-col items-center justify-center h-20 md:h-24 relative z-10">
-            <div className="w-full flex justify-center">
-              <TextTransition
-                springConfig={presets.wobbly}
-                className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-5xl font-medium italic"
+            <div className="w-full flex justify-center text-2xl md:text-4xl lg:text-5xl font-medium italic" 
                 style={{
                   fontFamily: "var(--font-local)",
                   textShadow: "0 2px 4px rgba(0,0,0,0.1)",
                   textAlign: "center",
-                  display: "inline-block",
-                }}
-              >
-                {TEXTS[index % TEXTS.length]}
-              </TextTransition>
+                }}>
+              <span>{""}</span>
+              <Typewriter
+                text={TEXTS}
+                speed={70}
+                className="text-blue-600 dark:text-blue-400"
+                waitTime={1500}
+                deleteSpeed={40}
+                cursorChar={"_"}
+              />
             </div>
-            <div className="mt-10 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full "></div>
+            <div className="mt-10 w-32 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full "></div>
           </div>
 
           <div className="text-center text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-gray-800 dark:text-gray-200 font-medium mb-16">

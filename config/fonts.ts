@@ -8,6 +8,6 @@ export const fontSans = FontSans({
 
 
 export const fontLocal = localFont({
-  src: 'Gwendolyn-Bold.ttf',
+  src: 'SweetHipster.ttf',
   variable: '--font-local',
 })

@@ -36,6 +36,7 @@
     "react-dom": "18.3.1",
     "react-simple-rotating-text": "^0.0.7",
     "react-text-transition": "^3.1.0",
+    "tailwind-merge": "^3.3.1",
     "tailwind-scrollbar-hide": "^4.0.0"
   },
   "devDependencies": {

@@ -20,7 +20,7 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
   const members: TeamMember[] = teamMembers || [
     {
       role: "Chapter Chair",
-      name: "Hamza Mellouli",
+      name: "Mariem Ksibi",
       description: "Leading our IEEE IAS Chapter with focus on industrial applications and power systems innovation.",
       image: "/images/testimonials/hamza.jpg"
     },

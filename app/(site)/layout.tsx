@@ -37,7 +37,7 @@ export default function RootLayout({
       <head></head>
       <body
         className={clsx(
-          "min-h-screen text-foreground font-sans antialiased transition-colors duration-300",
+          "min-h-screen font-sans antialiased",
           fontSans.variable,
           fontLocal.variable
         )}
@@ -55,8 +55,8 @@ export default function RootLayout({
           {/* Navbar outside of main container */}
           <Navbar />
 
-          {/* Main content with proper spacing */}
-          <main className="min-h-screen text-gray-900 dark:text-gray-100 relative z-10">
+          {/* Main content with proper spacing and theme-dependent styles */}
+          <main className="min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300 relative z-10">
             {children}
           </main>
 

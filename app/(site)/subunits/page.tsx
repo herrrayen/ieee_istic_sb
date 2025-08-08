@@ -1,5 +1,6 @@
 import { title } from "@/components/primitives";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SubunitsPage() {
   return (
@@ -21,7 +22,7 @@ export default function SubunitsPage() {
           </div>
 
           <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-1 gap-8 px-6">
-            {/* Row 1 */}
+            {/* Computer Society - unchanged */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="md:w-1/3 flex justify-center">
@@ -52,42 +53,45 @@ export default function SubunitsPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-orange-400 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
 
-            <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
-              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                <div className="md:w-1/3 flex justify-center">
-                  <div className="h-36 md:h-44 flex items-center justify-center gap-4">
-                    <Image 
-                      src="/images/logos/ias.png" 
-                      alt="Industrial Applications Society Logo" 
-                      width={120} 
-                      height={100}
-                      className="object-contain transition-all duration-300 group-hover:scale-110"
-                    />
-                    <Image 
-                      src="/images/logos/pes.png" 
-                      alt="Power and Energy Society Logo" 
-                      width={120} 
-                      height={100}
-                      className="object-contain transition-all duration-300 group-hover:scale-110"
-                    />
+            {/* IAS & PES - Make this clickable */}
+            <Link href="/ias" className="block">
+              <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                  <div className="md:w-1/3 flex justify-center">
+                    <div className="h-36 md:h-44 flex items-center justify-center gap-4">
+                      <Image 
+                        src="/images/logos/ias.png" 
+                        alt="Industrial Applications Society Logo" 
+                        width={120} 
+                        height={100}
+                        className="object-contain transition-all duration-300 group-hover:scale-110"
+                      />
+                      <Image 
+                        src="/images/logos/pes.png" 
+                        alt="Power and Energy Society Logo" 
+                        width={120} 
+                        height={100}
+                        className="object-contain transition-all duration-300 group-hover:scale-110"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="md:w-2/3">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
+                      Industrial Applications & Power and Energy Society
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
+                      Welcome to the world of Industry, with a sustainable twist! 
+                      Explore real-world applications, visit factories, and connect 
+                      with global industry leaders shaping the future of energy and industry.
+                    </p>
                   </div>
                 </div>
                 
-                <div className="md:w-2/3">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
-                    Industrial Applications & Power and Energy Society
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
-                    Welcome to the world of Industry, with a sustainable twist! 
-                    Explore real-world applications, visit factories, and connect 
-                    with global industry leaders shaping the future of energy and industry.
-                  </p>
-                </div>
+                {/* Accent border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-green-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
               </div>
-              
-              {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-green-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
-            </div>
+            </Link>
 
             {/* Row 2 */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">

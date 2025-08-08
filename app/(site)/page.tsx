@@ -1,30 +1,9 @@
 "use client";
 import React from "react";
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { Card } from "@heroui/card";
-import { Image } from "@heroui/image";
-import { CardBody, CardFooter } from "@heroui/card";
-import { Button } from "@heroui/button";
 import { Network, Briefcase, Users2, ArrowRight, Sparkles } from "lucide-react";
-import { fontLocal } from "@/config/fonts";
+import { fontLocal } from "@/config_ias/fonts";
 import TextTransition, { presets } from "react-text-transition";
-import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
 import TestimonialCarousel from "@/components/testimonial-carousel";
-import {
-  Carousel,
-  Typography,
-  Button as MTButton,
-} from "@material-tailwind/react";
-
-// Font loading is now handled through Next.js font system
-// Using local font defined in config/fonts.ts
-
 const TEXTS = [
   "Where Innovation Begins",
   "Your Journey Starts Here",
@@ -65,8 +44,9 @@ export default function Home() {
             <div className="w-full flex justify-center">
               <TextTransition
                 springConfig={presets.wobbly}
-                className="text-blue-400 dark:text-gray-300 text-5xl md:text-6xl lg:text-7xl font-medium italic"
+                className={`${fontLocal.className} text-blue-400 dark:text-gray-300 text-5xl md:text-6xl lg:text-7xl font-medium italic`}
                 style={{
+                  // Optional: keep explicit font-family via variable (works if variable injected somewhere)
                   fontFamily: "var(--font-local)",
                   textShadow: "0 2px 4px rgba(0,0,0,0.1)",
                   textAlign: "center",
@@ -259,4 +239,4 @@ export default function Home() {
       </section>
     </div>
   );
-} 
+}

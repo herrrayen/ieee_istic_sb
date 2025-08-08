@@ -20,34 +20,22 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
   const members: TeamMember[] = teamMembers || [
     {
       role: "Chapter Chair",
-      name: "Mariem Ksibi",
+      name: "Houssemeddine Benabdallah",
       description: "Leading our IEEE IAS Chapter with focus on industrial applications and power systems innovation.",
-      image: "/images/testimonials/hamza.jpg"
+      image: "/images/team/houssem.jpg"
     },
     {
       role: "Vice Chair",
-      name: "Yosri Ziadi",
+      name: "Mariem Ksibi",
       description: "Supporting chapter initiatives in motor drives and industrial automation technologies.",
-      image: "/images/team/yosri.jpg"
+      image: "/images/team/mariem.jpg"
     },
     {
       role: "Secretary",
-      name: "Maram El Kamel",
+      name: "Maleik",
       description: "Managing communications and coordinating power systems research activities.",
       image: "/images/team/maram.jpg"
     },
-    {
-      role: "Treasurer",
-      name: "Fatma Boughanmi",
-      description: "Handling financial planning for IAS conferences, workshops, and technical events.",
-      image: "/images/team/fatma.jpg"
-    },
-    {
-      role: "Technical Committee Lead",
-      name: "Mohamed Rayen Trabelsi",
-      description: "Managing digital infrastructure and leading renewable energy project initiatives.",
-      image: "/images/team/rayen.jpg"
-    }
   ];
 
   const carouselRef = useRef<HTMLDivElement>(null);

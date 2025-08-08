@@ -187,7 +187,7 @@ export default function Home() {
           {/* Benefits Button - Centered on screen */}
           <div className="w-full flex justify-center mt-12">
             <a
-              href="https://www.ieee.org/membership/societies/industry-applications-society.html"
+              href="https://ias.ieee.org/member-development/membership/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-green-600 to-green-500 rounded-xl p-3 text-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md w-fit"
@@ -222,7 +222,7 @@ export default function Home() {
             <TestimonialCarousel
               testimonials={[
                 {
-                  image: "/images/testimonials/hamza.jpg",
+                  image: "/images/team/mariem.jpg",
                   name: "Mariem Ksibi",
                   role: "IAS Chapter Chair",
                   quote:

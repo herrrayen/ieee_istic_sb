@@ -12,28 +12,40 @@ export default function ContactPage() {
     }
   };
 
+  // UPDATED: IAS-focused FAQs (replacing generic IEEE ones)
   const faqs = [
     {
-      question: "What is IEEE?",
+      question: "What is the IEEE Industry Applications Society (IAS)?",
       answer:
-        "IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. IEEE and its members inspire a global community through its highly cited publications, conferences, technology standards, and professional and educational activities.",
+        "IEEE IAS is a global society focused on advancing the theory and practice of electrical and electronic engineering in industrial and commercial environments—covering drives, energy systems, industrial automation, electrification, safety, and emerging sustainable technologies.",
     },
     {
-      question: "What does IEEE have to offer?",
+      question: "What does the IAS ISTIC Chapter do?",
       answer:
-        "From a personalized @ieee.org email and a globally recognized membership certificate to international travel grants, IEEE gives you the tools, opportunities, and exposure to thrive.",
+        "We organize technical workshops, industrial visits, collaborative projects, bootcamps, and mentorship programs that bridge academic learning with real industrial applications in power, automation, and sustainable systems.",
     },
+    {
+      question: "How can I join the IAS ISTIC Chapter?",
+      answer:
+        "Become an IEEE Student Member at ieee.org/join, then add IAS as a society when registering or later from your IEEE account. After that, contact our committee or visit us on campus to get involved in activities.",
+    },
+    {
+      question: "What benefits do IAS members receive?",
+      answer:
+        "Access to IEEE IAS magazines, technical resources, participation in competitions, eligibility for travel grants, networking with professionals, project opportunities, leadership roles, and early exposure to industry technologies.",
+    }
   ];
 
   return (
     <div className="flex flex-col gap-8 pt-20">
       <section className="container mx-auto py-12">
         <div className="flex flex-col items-center">
+          {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-blue-600 mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-500 mb-4">
               Contact Us
             </h1>
-            <div className="w-32 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full"></div>
 
             <div className="mt-10 text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
               <p className="leading-relaxed">
@@ -48,7 +60,7 @@ export default function ContactPage() {
             {/* Phone Card */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col items-center justify-center h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -72,20 +84,18 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="tel:+21695299726"
-                  className="text-blue-600 font-semibold mt-2 text-lg hover:underline"
+                  className="text-green-600 font-semibold mt-2 text-lg hover:underline"
                 >
                   +216 95 299 726
                 </a>
               </div>
-
-              {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
 
             {/* Email Card */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col items-center justify-center h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -109,20 +119,18 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="mailto:sb-istic@ieee.org"
-                  className="text-blue-600 font-semibold mt-2 text-lg hover:underline"
+                  className="text-green-600 font-semibold mt-2 text-lg hover:underline"
                 >
                   sb-istic@ieee.org
                 </a>
               </div>
-
-              {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
 
             {/* Visit Card */}
             <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
               <div className="flex flex-col items-center justify-center h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-300 to-blue-500 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -156,22 +164,20 @@ export default function ContactPage() {
                   href="https://maps.google.com/?q=ISTIC+Borj+Cedria+Tunisia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold mt-2 text-lg hover:underline"
+                  className="text-green-600 font-semibold mt-2 text-lg hover:underline"
                 >
                   View on Google Maps
                 </a>
               </div>
-
-              {/* Accent border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-500 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-15 rounded-2xl transition-opacity duration-300"></div>
             </div>
           </div>
 
-          {/* Google Maps */}
+          {/* Google Maps (unchanged) */}
           <div className="w-full max-w-7xl px-6 mb-16">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.248661153026!2d10.4144804!3d36.5817903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1302ffbce980afd1%3A0xb82aa2125fe3d94d!2sInstitut%20Sup%C3%A9rieur%20des%20Technologies%20de%20l&#39;Information%20et%20de%20la%20Communication%20de%20Borj%20C%C3%A9dria!5e0!3m2!1sen!2sus!4v1719757096626!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.248661153026!2d10.4144804!3d36.5817903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1302ffbce980afd1%3A0xb82aa2125fe3d94d!2sInstitut%20Sup%C3%A9rieur%20des%20Technologies%20de%20l'Information%20et%20de%20la%20Communication%20de%20Borj%20C%C3%A9dria!5e0!3m2!1sen!2sus!4v1719757096626!5m2!1sen!2sus"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
@@ -182,55 +188,61 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* FAQ Section */}
-          <div className="w-full max-w-7xl px-6">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-4">
-                Frequently Asked Questions
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
-            </div>
+            {/* FAQ Section */}
+            <div className="w-full max-w-7xl px-6">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-500 mb-4">
+                  Frequently Asked Questions
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full"></div>
+              </div>
 
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden transition-all duration-300"
-                >
-                  <button
-                    className="flex justify-between items-center w-full p-5 text-left"
-                    onClick={() => toggleQuestion(index)}
-                  >
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                      {faq.question}
-                    </h3>
-                    <svg
-                      className={`w-6 h-6 text-gray-500 transition-transform duration-300 ${openQuestion === index ? "transform rotate-180" : ""}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${openQuestion === index ? "max-h-96 py-5 px-5 border-t border-gray-200 dark:border-gray-700" : "max-h-0"}`}
+                    key={index}
+                    className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden transition-all duration-300"
                   >
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {faq.answer}
-                    </p>
+                    <button
+                      className="flex justify-between items-center w-full p-5 text-left"
+                      onClick={() => toggleQuestion(index)}
+                    >
+                      <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                        {faq.question}
+                      </h3>
+                      <svg
+                        className={`w-6 h-6 text-gray-500 transition-transform duration-300 ${
+                          openQuestion === index ? "transform rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        openQuestion === index
+                          ? "max-h-96 py-5 px-5 border-t border-gray-200 dark:border-gray-700"
+                          : "max-h-0"
+                      }`}
+                    >
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
         </div>
       </section>
     </div>

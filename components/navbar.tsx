@@ -233,7 +233,7 @@ export const Navbar = () => {
           >
             <Button
               as={Link}
-              href="https://ieee.org/membership/join"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSedKjUuRU0xSZSvTmjlMKJxZh0MCeWgAaXMBuwVQ-OF9JRIAA/viewform?usp=dialog"
               target="_blank"
               className="relative group font-semibold text-blue-600 bg-white hover:bg-blue-50 border-none px-10 py-4 text-lg rounded-2xl shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-blue-500/25 overflow-hidden"
               onClick={() => setIsMenuOpen(false)}

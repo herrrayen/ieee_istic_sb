@@ -157,7 +157,7 @@ export const Navbar = () => {
         <NavbarItem className="hidden md:flex">
           <Button
             as={Link}
-            href="https://ieee.org/membership/join"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSedKjUuRU0xSZSvTmjlMKJxZh0MCeWgAaXMBuwVQ-OF9JRIAA/viewform?usp=dialog"
             target="_blank"
             variant="light"
             className="relative font-medium text-white overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-lg bg-gradient-to-r from-green-600 via-green-500 to-emerald-600 border-none px-6 py-2.5 rounded-xl"

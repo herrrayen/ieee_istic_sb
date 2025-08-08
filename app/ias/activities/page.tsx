@@ -24,7 +24,7 @@ export default function ActivitiesPage() {
       location: "STUNAS INDUSTRIES",
       image: "/images/events/stmias.jpg",
       description:
-        "An empowering cybersecurity workshop focused on increasing women's participation in information security fields.",
+        "The IEEE ISTIC SB recently visited STUNAS INDUSTRIES, capturing moments of the steam-powered experience through photo highlights.",
     },
     {
       title: "IAS Benefits Session",
@@ -32,7 +32,7 @@ export default function ActivitiesPage() {
       location: "Online",
       image: "/images/events/iasbenefits.jpg",
       description:
-        "A hybrid event that aims to build AI skills through online sessions by Hamza Mellouli and onsite deep learning workshops by Mr.Ghassen El Abed.",
+        "An info session was held with IAS Section Chair Mr. Achref Selmi, where participants learned about IEEE IAS and the career benefits it offers.",
     },
     {
       title: "Raspberry Pi Computing with Python Session",
@@ -40,7 +40,7 @@ export default function ActivitiesPage() {
       location: "Online",
       image: "/images/events/pi.jpg",
       description:
-        "An exclusive industrial visit providing hands-on experience with cutting-edge semiconductor manufacturing technologies.",
+        "The first session of the TECHROAD Bootcamp, certified by IEEE SSCS-CAS ISTIC and IEEE IAS ISTIC, introduced participants to Raspberry Pi and Physical Computing with Python to boost their tech skills.",
     },
     {
       title: "Bootcamp TechRoad :Pathway to innovation",

@@ -25,22 +25,10 @@ export default function TeamCarousel({ teamMembers }: TeamCarouselProps) {
       image: "/images/testimonials/hamza.jpg" // Using existing image
     },
     {
-      role: "Vice Chair",
-      name: "Yosri Ziadi",
-      description: "Supporting branch initiatives and helping to coordinate our technical activities.",
-      image: "/images/team/yosri.jpg" // Placeholder image
-    },
-    {
-      role: "General Secretary",
-      name: "Maram El Kamel",
-      description: "Managing communications and ensuring smooth operation of all branch activities.",
-      image: "/images/team/maram.jpg" // Placeholder image
-    },
-    {
       role: "Treasurer",
-      name: "Fatma Boughanmi",
-      description: "Handling financial planning and ensuring resources are available for our activities.",
-      image: "/images/team/fatma.jpg" // Placeholder image
+      name: "Mouhib Farhat",
+      description: "Supporting branch initiatives and helping to coordinate our technical activities.",
+      image: "/images/team/mouhib.jpg" // Placeholder image
     },
     {
       role: "Webmaster",

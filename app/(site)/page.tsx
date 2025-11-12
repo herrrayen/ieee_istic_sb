@@ -224,8 +224,8 @@ export default function Home() {
                   accent: "border-purple-500/20",
                 },
                 {
-                  image: "/images/testimonials/mouhib.jpg",
-                  name: "Mouhib Farhat",
+                  image: "/images/testimonials/sarah.jpg",
+                  name: "Sarah Soltani",
                   role: "Active Member",
                   quote:
                     "Being part of this Student Branch has been one of the most rewarding experiences of my academic journey. I've grown both technically and personally.",

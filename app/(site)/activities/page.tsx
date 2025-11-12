@@ -5,33 +5,6 @@ export default function ActivitiesPage() {
   // Upcoming Events Data
   const upcomingEvents = [
     {
-      title: "IEEE Lumen",
-      date: "Revealed Soon",
-      location: "Soon",
-      image: "/images/events/lumen.jpg",
-      description:
-        "A premier lighting conference focusing on advancements in lighting technology, energy efficiency, and emerging applications.",
-      status: "Coming Soon",
-    },
-    {
-      title: "IEEEXtreme",
-      date: "October 25, 2025",
-      location: "Virtual - Global",
-      image: "/images/events/extreme.jpg",
-      description:
-        "A 24-hour global programming competition bringing together students from around the world to solve real-world coding challenges.",
-      status: "Coming Soon",
-    },
-    {
-      title: "IEEE Day",
-      date: "October 7, 2025",
-      location: "Soon",
-      image: "/images/events/ieee-day.jpg",
-      description:
-        "Celebrating the first time IEEE members gathered to share their technical ideas in 1884 with special activities and networking.",
-      status: "Coming Soon",
-    },
-    {
       title: "TSYP 13 (Tunisian Students & Young Professionals)",
       date: "December 22-24, 2025",
       location: "Medina Congress Center, Yasmine Hammamet",
@@ -44,6 +17,33 @@ export default function ActivitiesPage() {
 
   // Past Events Data
   const pastEvents = [
+    {
+      title: "IEEE Day",
+      date: "October 7, 2025",
+      location: "Soon",
+      image: "/images/events/ieee-day.jpg",
+      description:
+        "Celebrating the first time IEEE members gathered to share their technical ideas in 1884 with special activities and networking.",
+      status: "Coming Soon",
+    },
+    {
+      title: "IEEEXtreme",
+      date: "October 24-25, 2025",
+      location: "Virtual - Global",
+      image: "/images/events/extreme.jpg",
+      description:
+        "A 24-hour global programming competition bringing together students from around the world to solve real-world coding challenges.",
+      status: "Coming Soon",
+    },
+    {
+    title: "IEEE Lumen",
+      date: "September 27, 2025",
+      location: "Soon",
+      image: "/images/events/lumen.jpg",
+      description:
+        "A premier lighting conference focusing on advancements in lighting technology, energy efficiency, and emerging applications.",
+      status: "Coming Soon",
+    },
     {
       title: "Symphony:AI Bootcamp",
       date: "April 13, 2025",

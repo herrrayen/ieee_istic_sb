@@ -133,7 +133,7 @@ export default function IASLayout({ children }: { children: React.ReactNode }) {
                     <span className="w-5 h-5 inline-flex items-center justify-center rounded bg-emerald-600/40 text-emerald-100 text-xs">
                       @
                     </span>
-                    sb.istic@ieee.org
+                    sb-istic@ieee.org
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-5 h-5 inline-flex items-center justify-center rounded bg-emerald-600/40 text-emerald-100 text-xs">
